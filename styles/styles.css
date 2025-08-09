@@ -1510,6 +1510,50 @@ body.nav-open {
     height: 200px;
   }
 }
+/* === Mobile-only adjustments === */
+@media (max-width: 600px) {
+  /* Stack nav menu vertically */
+  .nav-menu {
+    display: none;
+    flex-direction: column;
+    gap: 0.5rem;
+    background: #fff;
+    padding: 1rem;
+  }
+
+  .nav-menu.active {
+    display: flex;
+  }
+
+  .hamburger {
+    display: block;
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+  }
+
+  /* Hero section stacks */
+  .section--hero {
+    text-align: center;
+    flex-direction: column;
+  }
+
+  .hero-image {
+    width: 100%;
+    height: auto;
+  }
+
+  /* Cards become single column */
+  .grid-spotlights {
+    grid-template-columns: 1fr !important;
+    gap: 1rem;
+  }
+
+  /* Ensure text and padding look good */
+  .spotlight__body {
+    padding: 1rem;
+  }
+}
 
 
 
