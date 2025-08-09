@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Empowering Crescent City businesses with tools, networking, and support to thrive in a dynamic local economy. Join our growing community.">
+  <meta name="author" content="Crescent City Chamber of Commerce">
+  <title>Crescent City Chamber of Commerce | Business Directory</title>
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Crescent City Chamber of Commerce">
+  <meta property="og:description" content="Empowering Crescent City's local businesses with resources, connections, and growth opportunities.">
+  <meta property="og:image" content="https://impulsible.github.io/wdd231/chamber/images/city.jpeg">
+  <meta property="og:url" content="https://impulsible.github.io/wdd231/chamber/directory.html">
+  <meta property="og:type" content="website">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Crescent City Chamber of Commerce">
+  <meta name="twitter:description" content="Discover opportunities, build connections, and grow your business within a vibrant local network.">
+  <meta name="twitter:image" content="https://impulsible.github.io/wdd231/chamber/images/city.jpeg">
+
+  <link rel="icon" href="images/download_1.png" type="image/png">
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/styles.css">
+
+  <!-- Scripts -->
+  <script src="scripts/scripts.js" defer></script>
+  <script src="scripts/toggleview.js" defer></script>
+
+  <meta name="theme-color" content="#3f80ff">
+</head>
+
+<body class="chamber-directory">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header>
+    <div class="header-container">
+      <!-- Logo and Text -->
+      <div class="header-logo">
+        <img src="images/download.png" alt="Crescent City Chamber Logo" width="150" height="50" loading="lazy">
+        <div class="logo-text">
+          <span class="main-text">Crescent City</span><br>
+          <span class="sub-text">Chamber of Commerce</span>
+        </div>
+      </div>
+
+      <!-- Hamburger for Mobile -->
+      <button class="hamburger" id="hamburgerBtn" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primaryNav">
+        ☰
+      </button>
+
+      <nav id="primaryNav" aria-label="Primary navigation" role="navigation">
+        <ul class="nav-menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="directory.html" class="active" aria-current="page">Business Directory</a></li>
+          <li><a href="join.html">Join</a></li>
+          <li><a href="discover.html">Discover</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content" tabindex="-1">
+    <!-- Hero Banner Section -->
+    <section class="hero-banner" aria-label="Introduction to Chamber Business Directory">
+      <div class="hero-image-overlay">
+        <img src="images/premium4.jpg" alt="Crescent City skyline view" class="hero-image">
+        <div class="hero-text-content">
+          <h1 class="hero-heading">Explore the Future with Us</h1>
+          <p class="hero-subtext">Connecting local businesses under one stellar network.</p>
+          <h2 class="hero-title">Chamber of Commerce Directory</h2>
+          <p class="hero-description">
+            Your one-stop source for discovering local businesses and organizations that contribute to our vibrant community.
+            Browse by category or search for specific listings to find the right services and opportunities near you.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- View Toggle Buttons -->
+    <section class="view-toggle" aria-label="Toggle between grid and list views">
+      <div class="view-toggle-buttons">
+        <button id="gridBtn" aria-pressed="true">Grid View</button>
+        <button id="listBtn" aria-pressed="false">List View</button>
+      </div>
+    </section>
+
+    <!-- Directory Search Section -->
+    <section class="directory-search" aria-label="Search the business directory">
+      <div class="container">
+        <h2>Directory Search</h2>
+        <input
+          type="text"
+          id="search-input"
+          placeholder="Type Keywords..."
+          aria-label="Search businesses"
+        />
+        <div class="categories">
+          <span>Popular Categories:</span>
+          <ul>
+            <li><a href="#">Healthcare</a></li>
+            <li><a href="#">Real Estate</a></li>
+            <li><a href="#">Food & Beverages</a></li>
+            <li><a href="#">Hospitality</a></li>
+            <li><a href="#">Design & Consulting</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <section>
+    <div class="directory-content grid-view" id="directoryContent">
+      <div class="directory-section">
+
+        <!-- Healthcare -->
+        <h2 class="directory-category-title">Healthcare</h2>
+        <div class="directory-category-row grid-view">
+          <!-- Business Cards for Healthcare -->
+          <div class="business-card">
+            <h3>FirstLight Home Care of Carlsbad & La Jolla</h3>
+            <p><strong>Gold Member</strong></p>
+            <p>1234 Main St, Carlsbad, CA 92008</p>
+            <p>Phone: (123) 456-7890</p>
+            <p>Providing personalized care to the elderly and disabled.</p>
+            <img src="images/firstlight-home.png" alt="FirstLight Home Care" class="business-image">
+            <a href="https://www.firstlighthomecare.com" target="_blank" rel="noopener noreferrer">Visit Website</a>
+          </div>
+
+          <div class="business-card">
+            <h3>Sunrise Wellness Center</h3>
+            <p><strong>Silver Member</strong></p>
+            <p>221 Wellness Dr, Encinitas, CA 92024</p>
+            <p>Phone: (760) 123-4567</p>
+            <p>Holistic wellness and rehabilitation services.</p>
+            <img src="images/sunrise.webp" alt="Sunrise Wellness Center" class="business-image">
+            <a href="https://www.sunrisewellness.com" target="_blank" rel="noopener noreferrer">Visit Website</a>
+          </div>
+
+          <div class="business-card">
+            <h3>Harmony Medical Clinic</h3>
+            <p><strong>Bronze Member</strong></p>
+            <p>890 Harmony Rd, Vista, CA 92083</p>
+            <p>Phone: (760) 987-6543</p>
+            <p>Affordable medical care focused on community wellness.</p>
+            <img src="images/harmony.jpg" alt="Harmony Medical Clinic" class="business-image">
+            <a href="https://www.harmonymedical.com" target="_blank" rel="noopener noreferrer">Visit Website</a>
+          </div>
+        </div>
+<!-- Real Estate -->
+      <h2 class="directory-category-title">Real Estate</h2>
+      <div class="directory-category-row">
+        <div class="business-card">
+          <h3>Coastal Living Realty</h3>
+          <p><strong>Silver Member</strong></p>
+          <p>5678 Beach Blvd, Carlsbad, CA 92009</p>
+          <p>Phone: (987) 654-3210</p>
+          <p>Helping clients find their dream homes on the coast.</p>
+          <img src="images/coastal-living.jpg" alt="Coastal Living Realty" class="business-image">
+          <a href="https://www.coastallivingrealty.com" target="_blank" rel="noopener noreferrer">Visit Website</a>
+        </div>
+
+        <div class="business-card">
+          <h3>Pacific Horizon Properties</h3>
+          <p><strong>Gold Member</strong></p>
+          <p>1020 Pacific St, Oceanside, CA 92054</p>
+          <p>Phone: (760) 888-1234</p>
+          <p>Expert agents specializing in coastal properties.</p>
+          <img src="images/pacific.png" alt="Pacific Horizon Properties" class="business-image">
+          <a href="https://www.pacifichorizon.com" target="_blank" rel="noopener noreferrer">Visit Website</a>
+        </div>
+
+        <div class="business-card">
+          <h3>Urban Nest Realty</h3>
+          <p><strong>Bronze Member</strong></p>
+          <p>321 Metro Ave, San Diego, CA 92103</p>
+          <p>Phone: (619) 123-9876</p>
+          <p>Modern solutions for city living and investment properties.</p>
+          <img src="images/nests.png" alt="Urban Nest Realty" class="business-image">
+         <a href="https://www.urbannestrealty.com" target="_blank" rel="noopener noreferrer">Visit Website</a>
+        </div>
+      </div>
+
+      <!-- Food & Beverage -->
+      <h2 class="directory-category-title">Food & Beverage</h2>
+      <div class="directory-category-row">
+        <div class="business-card">
+          <h3>Bay Area Coffee Roasters</h3>
+          <p><strong>Bronze Member</strong></p>
+          <p>789 Coffee St, San Francisco, CA 94102</p>
+          <p>Phone: (555) 555-5555</p>
+          <p>Specializing in artisanal coffee beans roasted locally.</p>
+          <img src="images/crop.webp" alt="Bay Area Coffee Roasters" class="business-image">
+          <a href="https://www.bayareacoffee.com" target="_blank" rel="noopener noreferrer">Visit Website</a>
+        </div>
+
+        <div class="business-card">
+          <h3>Fresh Farms Market</h3>
+          <p><strong>Bronze Member</strong></p>
+          <p>456 Green St, San Diego, CA 92101</p>
+          <p>Phone: (619) 555-3456</p>
+          <p>Fresh, organic produce and groceries from local farms.</p>
+          <img src="images/farm-fresh.avif" alt="Fresh Farms Market" class="business-image">
+          <a href="https://www.freshfarmsmarket.com" target="_blank" rel="noopener noreferrer">Visit Website</a>
+        </div>
+
+        <div class="business-card">
+          <h3>Sunset Brewery</h3>
+          <p><strong>Silver Member</strong></p>
+          <p>100 Craft Ln, Escondido, CA 92026</p>
+          <p>Phone: (760) 555-1010</p>
+          <p>Craft beers brewed with locally sourced ingredients.</p>
+          <img src="images/hills.avif" alt="Sunset Brewery" class="business-image">
+          <a href="https://www.sunsetbrewery.com" target="_blank" rel="noopener noreferrer">Visit Website</a>
+        </div>
+      </div>
+
+      <!-- Hospitality -->
+      <h2 class="directory-category-title">Hospitality</h2>
+      <div class="directory-category-row">
+        <div class="business-card">
+          <h3>Sunny Beach Resort</h3>
+          <p><strong>Gold Member</strong></p>
+          <p>1012 Beach Ave, Malibu, CA 90265</p>
+          <p>Phone: (310) 555-1212</p>
+          <p>Luxury beach resort offering premium accommodations.</p>
+          <img src="images/corners.jpg" alt="Sunny Beach Resort" class="business-image">
+          <a href="https://www.sunnybeachresort.com" target="_blank" rel="noopener noreferrer">Visit Website</a>
+        </div>
+
+        <div class="business-card">
+          <h3>Ocean View Hotel</h3>
+          <p><strong>Platinum Member</strong></p>
+          <p>345 Ocean Blvd, Santa Monica, CA 90401</p>
+          <p>Phone: (310) 555-7890</p>
+          <p>Breathtaking ocean views and world-class service.</p>
+          <img src="images/images.jpeg" alt="Ocean View Hotel" class="business-image">
+          <a href="https://www.oceanviewhotel.com" target="_blank" rel="noopener noreferrer">Visit Website</a>
+        </div>
+
+        <div class="business-card">
+          <h3>Harbor Inn</h3>
+          <p><strong>Silver Member</strong></p>
+          <p>789 Dockside Dr, Newport Beach, CA 92660</p>
+          <p>Phone: (949) 555-3434</p>
+          <p>Comfortable lodging with a view of the marina.</p>
+          <img src="images/inn.webp" alt="Harbor Inn exterior view" class="business-image">
+          <a href="https://www.harborinn.com" target="_blank" rel="noopener noreferrer">Visit Website</a>
+        </div>
+      </div>
+
+      <!-- Design & Consulting -->
+      <h2 class="directory-category-title">Design & Consulting</h2>
+      <div class="directory-category-row">
+        <div class="business-card">
+          <h3>Blue Sky Design Studio</h3>
+          <p><strong>Gold Member</strong></p>
+          <p>404 Creative Way, San Diego, CA 92101</p>
+          <p>Phone: (619) 555-4040</p>
+          <img src="images/square-logo.jpg" alt="Blue Sky Design Studio" class="business-image">
+          <p class="description">Creative solutions for modern brands.</p>
+          <a href="https://www.blueskydesign.com" target="_blank" rel="noopener noreferrer">Visit Website</a>
+        </div>
+
+        <div class="business-card">
+          <h3>Green Leaf Consulting</h3>
+          <p><strong>Silver Member</strong></p>
+          <p>303 Growth Blvd, San Diego, CA 92101</p>
+          <p>Phone: (619) 555-5678</p>
+          <p>Business strategy and environmental consulting.</p>
+          <img src="images/green.jpg" alt="Green Leaf Consulting" class="business-image">
+          <a href="https://www.greenleafconsulting.com" target="_blank" rel="noopener noreferrer">Visit Website</a>
+        </div>
+  <div class="business-card">
+    <h3>Summit Business Advisors</h3>
+    <p><strong>Bronze Member</strong></p>
+    <p>123 Summit St, Oceanside, CA 92054</p>
+    <p>Phone: (760) 555-1234</p>
+    <p>Strategic business consulting for startups and SMEs.</p>
+    <img src="images/summit.png" alt="Summit Business Advisors" class="business-image">
+    <a href="https://www.summitbusinessadvisors.com" target="_blank" rel="noopener noreferrer">Visit Website</a>
+  </div>
+</div>
+
+    </div>
+  </div>
+<section>
+
+   <footer>
+    <div class="container">
+      <p>&copy; <span id="year"></span> Crescent City Chamber of Commerce. All rights reserved.</p>
+      <p>Last updated: <span id="last-modified"></span></p>
+    </div>
+  </footer>
+<script>
+ // ==============================
+// Toggle View Buttons
+// ==============================
+const gridBtn = document.getElementById('gridBtn');
+const listBtn = document.getElementById('listBtn');
+const categoryRows = document.querySelectorAll('.directory-category-row');
+
+function setView(view) {
+  categoryRows.forEach(row => {
+    row.classList.toggle('grid-view', view === 'grid');
+    row.classList.toggle('list-view', view === 'list');
+  });
+
+  gridBtn.setAttribute('aria-pressed', view === 'grid');
+  listBtn.setAttribute('aria-pressed', view === 'list');
+}
+
+gridBtn.addEventListener('click', () => setView('grid'));
+listBtn.addEventListener('click', () => setView('list'));
+
+// ==============================
+// Load and Display Members
+// ==============================
+const container = document.getElementById('membersContainer'); 
+</script>
+  <script>
+    // Footer Year and Last Modified Script
+    document.getElementById('year').textContent = new Date().getFullYear();
+    document.getElementById('last-modified').textContent = document.lastModified;
+  </script>
+
+  <script>
+  // Highlight the link that matches the current page URL
+  const currentPage = window.location.pathname.split("/").pop();
+  const navLinks = document.querySelectorAll(".nav-menu a");
+
+  navLinks.forEach(link => {
+    if (link.getAttribute("href") === currentPage) {
+      link.classList.add("active");
+    }
+  });
+</script>
+</body>
+
+</html>
+

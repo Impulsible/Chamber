@@ -1,0 +1,109 @@
+[
+    {
+        "name": "FirstLight Home Care of Carlsbad & La Jolla",
+        "address": "1234 Main St, Carlsbad, CA 92008",
+        "phone": "(123) 456-7890",
+        "website": "https://www.firstlighthomecare.com",
+        "image": "firstlight-homecare.jpg",
+        "membership_level": "Gold",
+        "category": "Healthcare",
+        "description": "Providing personalized care to the elderly and disabled."
+    },
+    {
+        "name": "Coastal Living Realty",
+        "address": "5678 Beach Blvd, Carlsbad, CA 92009",
+        "phone": "(987) 654-3210",
+        "website": "https://www.coastallivingrealty.com",
+        "image": "coastal-living-realty.jpg",
+        "membership_level": "Silver",
+        "category": "Real Estate",
+        "description": "Helping clients find their dream homes on the coast."
+    },
+    {
+        "name": "Bay Area Coffee Roasters",
+        "address": "789 Coffee St, San Francisco, CA 94102",
+        "phone": "(555) 555-5555",
+        "website": "https://www.bayareacoffee.com",
+        "image": "bay-area-coffee.jpg",
+        "membership_level": "Bronze",
+        "category": "Food & Beverage",
+        "description": "Specializing in artisanal coffee beans roasted locally."
+    },
+    {
+        "name": "Sunny Beach Resort",
+        "address": "1012 Beach Ave, Malibu, CA 90265",
+        "phone": "(310) 555-1212",
+        "website": "https://www.sunnybeachresort.com",
+        "image": "sunny-beach-resort.jpg",
+        "membership_level": "Gold",
+        "category": "Hospitality",
+        "description": "A luxury beach resort offering premium accommodations."
+    },
+    {
+        "name": "Creative Design Studio",
+        "address": "234 Design Rd, Los Angeles, CA 90001",
+        "phone": "(213) 555-2323",
+        "website": "https://www.creativedesignstudio.com",
+        "image": "creative-design-studio.jpg",
+        "membership_level": "Silver",
+        "category": "Design & Consulting",
+        "description": "Providing innovative design solutions for branding and marketing."
+    },
+    {
+        "name": "Ocean View Hotel",
+        "address": "345 Ocean Blvd, Santa Monica, CA 90401",
+        "phone": "(310) 555-7890",
+        "website": "https://www.oceanviewhotel.com",
+        "image": "ocean-view-hotel.jpg",
+        "membership_level": "Platinum",
+        "category": "Hospitality",
+        "description": "Offering breathtaking ocean views and world-class service."
+    },
+    {
+        "name": "Fresh Farms Market",
+        "address": "456 Green St, San Diego, CA 92101",
+        "phone": "(619) 555-3456",
+        "website": "https://www.freshfarmsmarket.com",
+        "image": "fresh-farms-market.jpg",
+        "membership_level": "Bronze",
+        "category": "Food & Beverage",
+        "description": "Providing fresh, organic produce and groceries from local farms."
+    }
+]
+
+{
+  "members": [
+    {
+      "name": "BrightTech Solutions",
+      "logo": "images/members/brighttech.png",
+      "phone": "+234 803 123 4567",
+      "address": "123 Innovation Road, Lagos",
+      "website": "https://brighttech.com",
+      "membership": "Gold"
+    },
+    {
+      "name": "Green Earth Foods",
+      "logo": "images/members/greenearth.png",
+      "phone": "+234 802 765 4321",
+      "address": "45 Organic Blvd, Lagos",
+      "website": "https://greenearthfoods.com",
+      "membership": "Silver"
+    },
+    {
+      "name": "Naija Finance Group",
+      "logo": "images/members/naijafinance.png",
+      "phone": "+234 701 987 6543",
+      "address": "88 Treasury Street, Lagos",
+      "website": "https://naijafinance.com",
+      "membership": "Gold"
+    },
+    {
+      "name": "Urban Wear",
+      "logo": "images/members/urbanwear.png",
+      "phone": "+234 806 555 3344",
+      "address": "10 Fashion Ave, Lagos",
+      "website": "https://urbanwear.ng",
+      "membership": "Bronze"
+    }
+  ]
+}

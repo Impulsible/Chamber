@@ -1,0 +1,26 @@
+[
+  {
+    "companyName": "City Bakery",
+    "logo": "images/city-bakery-logo.png",
+    "phone": "555-123-4567",
+    "address": "123 Main St, Crescent City",
+    "website": "https://citybakery.example.com",
+    "membershipLevel": "gold"
+  },
+  {
+    "companyName": "Crescent Auto",
+    "logo": "images/crescent-auto-logo.png",
+    "phone": "555-987-6543",
+    "address": "456 Elm St, Crescent City",
+    "website": "https://crescentauto.example.com",
+    "membershipLevel": "silver"
+  },
+  {
+    "companyName": "River Tech Solutions",
+    "logo": "images/river-tech-logo.png",
+    "phone": "555-246-8102",
+    "address": "789 River Rd, Crescent City",
+    "website": "https://rivertech.example.com",
+    "membershipLevel": "bronze"
+  }
+]

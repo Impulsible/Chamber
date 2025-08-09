@@ -1,0 +1,51 @@
+@media (min-width: 1025px) {
+  .discover-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(4, auto);
+    grid-template-areas:
+      "card1 card2"
+      "card3 card4"
+      "card5 card6"
+      "card7 card8";
+    gap: 1.5rem;
+  }
+  .card1 { grid-area: card1; }
+  .card2 { grid-area: card2; }
+  .card3 { grid-area: card3; }
+  .card4 { grid-area: card4; }
+  .card5 { grid-area: card5; }
+  .card6 { grid-area: card6; }
+  .card7 { grid-area: card7; }
+  .card8 { grid-area: card8; }
+
+  /* Keep card internal grid layout from above */
+}
+
+.card {
+  display: grid;
+  grid-template-columns: 60% 40%; /* image takes 60% width */
+  border-radius: 16px;
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+  min-height: 280px;
+}
+
+.card figure {
+  grid-area: image;
+  margin: 0;
+  overflow: hidden;
+  border-radius: 16px 0 0 16px; /* round left corners */
+  height: 100%;
+}
+
+.card figure img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 16px 0 0 16px;
+  transition: transform 0.5s ease;
+}
+

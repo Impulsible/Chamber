@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Empowering Crescent City businesses with tools, networking, and support to thrive in a dynamic local economy. Join our growing community.">
+  <meta name="author" content="Crescent City Chamber of Commerce">
+  <title>Crescent City Chamber of Commerce | Home</title>
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Crescent City Chamber of Commerce">
+  <meta property="og:description" content="Empowering Crescent City's local businesses with resources, connections, and growth opportunities.">
+  <meta property="og:image" content="https://impulsible.github.io/wdd231/chamber/images/city.jpeg">
+  <meta property="og:url" content="https://impulsible.github.io/wdd231/chamber/index.html">
+  <meta property="og:type" content="website">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Crescent City Chamber of Commerce">
+  <meta name="twitter:description" content="Discover opportunities, build connections, and grow your business within a vibrant local network.">
+  <meta name="twitter:image" content="https://impulsible.github.io/wdd231/chamber/images/city.jpeg">
+
+  <link rel="icon" href="images/download_1.png" type="image/png">
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/styles.css">
+
+  <!-- Scripts -->
+  <script src="scripts/scripts.js" defer></script>
+  <script src="scripts/toggleview.js" defer></script>
+  <script src="scripts/weather.js" defer></script>
+  <script src="scripts/spotlight.js" defer></script>
+  <script src="scripts/forecast.js" defer></script>
+
+  <meta name="theme-color" content="#3f80ff">
+</head>
+
+<body class="chamber-home">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+<header>
+  <div class="header-container">
+    <!-- Logo and Text -->
+    <div class="header-logo">
+      <img src="images/download.png" alt="Crescent City Chamber Logo" width="150" height="50" loading="lazy">
+      <div class="logo-text">
+        <span class="main-text">Crescent City</span><br>
+        <span class="sub-text">Chamber of Commerce</span>
+      </div>
+    </div>
+
+    <!-- Hamburger for Mobile -->
+    <button class="hamburger" id="hamburgerBtn" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primaryNav">
+      ☰
+    </button>
+
+    <!-- Navigation -->
+    <nav id="primaryNav" aria-label="Primary navigation" role="navigation">
+      <ul class="nav-menu">
+        <li><a href="index.html" class="active" aria-current="page">Home</a></li>
+        <li><a href="directory.html">Business Directory</a></li>
+        <li><a href="join.html">Join</a></li>
+        <li><a href="discover.html">Discover</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+  <main id="main-content" tabindex="-1">
+    <section class="hero-banner" aria-label="Welcome to Crescent City Chamber of Commerce">
+      <img src="images/premium4.jpg" alt="Crescent City skyline view" class="hero-image" width="1200" height="675" loading="lazy">
+      <div class="hero-text-content">
+        <h1>Welcome to Crescent City</h1>
+        <h2 class="subheading">Chamber of Commerce</h2>
+        <p>Empowering our local businesses through connection, resources, and growth opportunities.</p>
+        <a href="join.html" class="btn-primary" aria-label="Join the Crescent City Chamber of Commerce">Join the Chamber</a>
+      </div>
+    </section>
+
+    <div class="cards-container">
+      <!-- Upcoming Events -->
+      <section class="card events-card" aria-label="Upcoming events">
+        <h2>Upcoming Events</h2>
+        <ul class="events-list">
+          <li>
+            <strong>Business Networking Mixer</strong> - June 10, 2025 at 6:00 PM<br>
+            Join local entrepreneurs for an evening of networking and business growth.
+          </li>
+          <li>
+            <strong>Annual Chamber Awards Gala</strong> - July 15, 2025 at 7:00 PM<br>
+            Celebrate outstanding local businesses and leaders.
+          </li>
+          <li>
+            <strong>Small Business Workshop Series</strong> - Every Wednesday in August<br>
+            Free workshops on marketing, finance, and more.
+          </li>
+        </ul>
+      </section>
+
+      <!-- Current Weather -->
+      <section id="current-weather" class="card current-weather-card" aria-labelledby="current-weather-title">
+        <h2 id="current-weather-title">Current Weather</h2>
+        <div id="weather" class="weather-details">
+          <img src="https://openweathermap.org/img/wn/01d@2x.png" alt="Sunny weather icon" class="weather-icon" width="70" height="70" loading="lazy">
+        </div>
+      </section>
+
+      <!-- Weather Forecast -->
+      <section id="weather-forecast" class="card forecast-card" aria-labelledby="forecast-title">
+        <h2 id="forecast-title">3-Day Forecast</h2>
+        <div id="forecast" class="forecast-cards">
+          <!-- JS inserts forecast cards here -->
+        </div>
+      </section>
+    </div>
+
+    <!-- Member Spotlights -->
+    <section id="member-spotlights" aria-labelledby="spotlight-title">
+      <h2 id="spotlight-title">Member Spotlights</h2>
+      <div class="spotlight-container" role="list">
+        <!-- Spotlight cards dynamically inserted here -->
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; <span id="year"></span> Crescent City Chamber of Commerce. All rights reserved.</p>
+      <p>Last updated: <span id="last-modified"></span></p>
+    </div>
+  </footer>
+
+  <script>
+    // Footer Year and Last Modified Script
+    document.getElementById("year").textContent = new Date().getFullYear();
+    document.getElementById("last-modified").textContent = document.lastModified;
+
+    // Highlight current page in nav
+    const currentPage = window.location.pathname.split("/").pop();
+    document.querySelectorAll(".nav-menu a").forEach((link) => {
+      if (link.getAttribute("href") === currentPage) {
+        link.classList.add("active");
+      }
+    });
+  </script>
+</body>
+</html>

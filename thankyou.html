@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thank You | Crescent City Chamber of Commerce</title>
+  <meta name="description" content="Confirmation page for Crescent City Chamber of Commerce membership form.">
+  <meta name="author" content="Crescent City Chamber of Commerce">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Crescent City Chamber of Commerce">
+  <meta property="og:description" content="Empowering Crescent City's local businesses with resources, connections, and growth opportunities.">
+  <meta property="og:image" content="https://impulsible.github.io/wdd231/chamber/images/city.jpeg">
+  <meta property="og:url" content="https://impulsible.github.io/wdd231/chamber/directory.html">
+  <meta property="og:type" content="website">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Crescent City Chamber of Commerce">
+  <meta name="twitter:description" content="Discover opportunities, build connections, and grow your business within a vibrant local network.">
+  <meta name="twitter:image" content="https://impulsible.github.io/wdd231/chamber/images/city.jpeg">
+
+  <link rel="icon" href="images/download_1.png" type="image/png">
+
+  <!-- Scripts -->
+  <script src="scripts/scripts.js" defer></script>
+  <script src="scripts/toggleview.js" defer></script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="styles/styles.css">
+  <link rel="stylesheet" href="styles/join.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
+
+
+</head>
+<body class="join-page">
+
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header>
+    <div class="header-container">
+      <div class="header-logo">
+        <img src="images/download.png" alt="Crescent City Chamber Logo" width="150" height="50" loading="lazy">
+        <div class="logo-text">
+          <span class="main-text">Crescent City</span><br>
+          <span class="sub-text">Chamber of Commerce</span>
+        </div>
+      </div>
+
+      <button class="hamburger" id="hamburgerBtn" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primaryNav">☰</button>
+
+      <nav id="primaryNav" aria-label="Primary navigation">
+        <ul class="nav-menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="directory.html">Business Directory</a></li>
+          <li><a href="join.html">Join</a></li>
+          <li><a href="membership.html">Membership</a></li>
+          <li><a href="discover.html">Discover</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content" class="thank-you-main">
+    <section class="container">
+      <h1 class="thank-you-heading">🎉 Thank You, <span id="firstNameDisplay"></span>!</h1>
+      <p class="thank-you-subtext small-raised">
+  We’ve received your application. Our team will review it and contact you within 3 business days.
+  Below is a summary of the information you provided:
+</p>
+
+<ul id="formDataDisplay" class="form-summary"></ul>
+
+      <a href="index.html" class="return-home-btn">← Return to Home</a>
+
+      <p id="redirect-message" style="font-size: 0.9rem; color: #555; margin-top: 1rem;">
+  You will be redirected to the join page in <span id="countdown">60</span> seconds...
+</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>© <span id="year"></span> Crescent City Chamber of Commerce. All rights reserved.</p>
+    <p id="last-modified">Last updated: <span id="lastModified"></span></p>
+  </footer>
+
+  <script>
+    // Populate footer info
+    document.getElementById("year").textContent = new Date().getFullYear();
+    document.getElementById("lastModified").textContent = document.lastModified;
+
+    // Populate form data and greeting
+    const formData = JSON.parse(localStorage.getItem("formData"));
+    const display = document.getElementById("formDataDisplay");
+    const firstNameDisplay = document.getElementById("firstNameDisplay");
+
+    if (formData) {
+      firstNameDisplay.textContent = formData.firstName || "";
+      display.innerHTML = `
+        <li><strong>First Name:</strong> ${formData.firstName}</li>
+        <li><strong>Last Name:</strong> ${formData.lastName}</li>
+        <li><strong>Email:</strong> ${formData.email}</li>
+        <li><strong>Mobile:</strong> ${formData.mobile}</li>
+        <li><strong>Business Name:</strong> ${formData.businessName}</li>
+        <li><strong>Submitted At:</strong> ${new Date(formData.timestamp).toLocaleString()}</li>
+      `;
+    } else {
+      firstNameDisplay.textContent = "";
+      display.innerHTML = "<li>No data found. Please fill out the <a href='join.html'>membership form</a>.</li>";
+    }
+
+    // Countdown and redirect after 60 seconds
+let countdown = 60;
+const countdownEl = document.getElementById('countdown');
+
+const timer = setInterval(() => {
+  countdown--;
+  if (countdownEl) countdownEl.textContent = countdown;
+
+  if (countdown <= 0) {
+    clearInterval(timer);
+    window.location.href = 'join.html';  // redirect here
+  }
+}, 1000);
+
+  window.addEventListener('load', () => {
+    const jsConfetti = new JSConfetti();
+
+    jsConfetti.addConfetti({
+      confettiColors: [
+        '#004d99', // Deep Blue
+        '#66a3ff', // Lighter Blue
+        '#ffdb4d', // Gold/Yellow
+        '#ffffff', // White
+        '#cccccc'  // Light Gray
+      ],
+      confettiRadius: 6,
+      confettiNumber: 150
+    });
+  });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,181 @@
+{
+  "Healthcare": [
+    {
+      "name": "FirstLight Home Care of Carlsbad & La Jolla",
+      "address": "1234 Main St, Carlsbad, CA 92008",
+      "phone": "(123) 456-7890",
+      "website": "https://www.firstlighthomecare.com",
+      "image": "firstlight-homecare.jpg",
+      "membership_level": "Gold",
+      "description": "Providing personalized care to the elderly and disabled."
+    },
+    {
+      "name": "Sunrise Wellness Center",
+      "address": "221 Wellness Dr, Encinitas, CA 92024",
+      "phone": "(760) 123-4567",
+      "website": "https://www.sunrisewellness.com",
+      "image": "sunrise-wellness.jpg",
+      "membership_level": "Silver",
+      "description": "Holistic wellness and rehabilitation services."
+    },
+    {
+      "name": "Harmony Medical Clinic",
+      "address": "890 Harmony Rd, Vista, CA 92083",
+      "phone": "(760) 987-6543",
+      "website": "https://www.harmonymedical.com",
+      "image": "harmony-medical.jpg",
+      "membership_level": "Bronze",
+      "description": "Affordable medical care with a focus on community wellness."
+    }
+  ],
+  "Real Estate": [
+    {
+      "name": "Coastal Living Realty",
+      "address": "5678 Beach Blvd, Carlsbad, CA 92009",
+      "phone": "(987) 654-3210",
+      "website": "https://www.coastallivingrealty.com",
+      "image": "coastal-living-realty.jpg",
+      "membership_level": "Silver",
+      "description": "Helping clients find their dream homes on the coast."
+    },
+    {
+      "name": "Pacific Horizon Properties",
+      "address": "1020 Pacific St, Oceanside, CA 92054",
+      "phone": "(760) 888-1234",
+      "website": "https://www.pacifichorizon.com",
+      "image": "pacific-horizon.jpg",
+      "membership_level": "Gold",
+      "description": "Expert agents specializing in coastal properties."
+    },
+    {
+      "name": "Urban Nest Realty",
+      "address": "321 Metro Ave, San Diego, CA 92103",
+      "phone": "(619) 123-9876",
+      "website": "https://www.urbannestrealty.com",
+      "image": "urban-nest.jpg",
+      "membership_level": "Bronze",
+      "description": "Modern solutions for city living and investment properties."
+    }
+  ],
+  "Food & Beverage": [
+    {
+      "name": "Bay Area Coffee Roasters",
+      "address": "789 Coffee St, San Francisco, CA 94102",
+      "phone": "(555) 555-5555",
+      "website": "https://www.bayareacoffee.com",
+      "image": "bay-area-coffee.jpg",
+      "membership_level": "Bronze",
+      "description": "Specializing in artisanal coffee beans roasted locally."
+    },
+    {
+      "name": "Fresh Farms Market",
+      "address": "456 Green St, San Diego, CA 92101",
+      "phone": "(619) 555-3456",
+      "website": "https://www.freshfarmsmarket.com",
+      "image": "fresh-farms-market.jpg",
+      "membership_level": "Bronze",
+      "description": "Providing fresh, organic produce and groceries from local farms."
+    },
+    {
+      "name": "Sunset Brewery",
+      "address": "100 Craft Ln, Escondido, CA 92026",
+      "phone": "(760) 555-1010",
+      "website": "https://www.sunsetbrewery.com",
+      "image": "sunset-brewery.jpg",
+      "membership_level": "Silver",
+      "description": "Craft beers brewed with locally sourced ingredients."
+    }
+  ],
+  "Hospitality": [
+    {
+      "name": "Sunny Beach Resort",
+      "address": "1012 Beach Ave, Malibu, CA 90265",
+      "phone": "(310) 555-1212",
+      "website": "https://www.sunnybeachresort.com",
+      "image": "sunny-beach-resort.jpg",
+      "membership_level": "Gold",
+      "description": "A luxury beach resort offering premium accommodations."
+    },
+    {
+      "name": "Ocean View Hotel",
+      "address": "345 Ocean Blvd, Santa Monica, CA 90401",
+      "phone": "(310) 555-7890",
+      "website": "https://www.oceanviewhotel.com",
+      "image": "ocean-view-hotel.jpg",
+      "membership_level": "Platinum",
+      "description": "Offering breathtaking ocean views and world-class service."
+    },
+    {
+      "name": "Harbor Inn",
+      "address": "789 Dockside Dr, Newport Beach, CA 92660",
+      "phone": "(949) 555-3434",
+      "website": "https://www.harborinn.com",
+      "image": "harbor-inn.jpg",
+      "membership_level": "Silver",
+      "description": "Comfortable lodging with a view of the marina."
+    }
+  ],
+  "Design & Consulting": [
+    {
+      "name": "Creative Design Studio",
+      "address": "234 Design Rd, Los Angeles, CA 90001",
+      "phone": "(213) 555-2323",
+      "website": "https://www.creativedesignstudio.com",
+      "image": "creative-design-studio.jpg",
+      "membership_level": "Silver",
+      "description": "Providing innovative design solutions for branding and marketing."
+    },
+    {
+      "name": "Inspire Strategy Group",
+      "address": "456 Innovation Blvd, Irvine, CA 92618",
+      "phone": "(949) 123-4567",
+      "website": "https://www.inspirestrategy.com",
+      "image": "inspire-strategy.jpg",
+      "membership_level": "Gold",
+      "description": "Helping businesses grow through strategic planning."
+    },
+    {
+      "name": "Blueprint UX Agency",
+      "address": "101 Tech Ave, San Jose, CA 95112",
+      "phone": "(408) 555-7890",
+      "website": "https://www.blueprintux.com",
+      "image": "blueprint-ux.jpg",
+      "membership_level": "Bronze",
+      "description": "User experience and product design experts."
+    }
+  ]
+}
+[
+  {
+    "companyName": "Sunshine Bakery",
+    "logo": "images/logos/sunshine-bakery.png",
+    "phone": "555-123-4567",
+    "address": "123 Main St, Crescent City",
+    "website": "https://sunshinebakery.example.com",
+    "membershipLevel": "Gold"
+  },
+  {
+    "companyName": "Green Tech Solutions",
+    "logo": "images/logos/green-tech.png",
+    "phone": "555-987-6543",
+    "address": "456 Elm St, Crescent City",
+    "website": "https://greentech.example.com",
+    "membershipLevel": "Silver"
+  },
+  {
+    "companyName": "Harbor Real Estate",
+    "logo": "images/logos/harbor-realestate.png",
+    "phone": "555-222-3333",
+    "address": "789 Bay Ave, Crescent City",
+    "website": "https://harborrealestate.example.com",
+    "membershipLevel": "Gold"
+  },
+  {
+    "companyName": "Tech Gear Co.",
+    "logo": "images/logos/tech-gear.png",
+    "phone": "555-111-2222",
+    "address": "321 Market St, Crescent City",
+    "website": "https://techgear.example.com",
+    "membershipLevel": "Bronze"
+  }
+]
