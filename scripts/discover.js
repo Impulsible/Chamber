@@ -72,3 +72,24 @@ document.addEventListener('DOMContentLoaded', () => {
   displayLastVisitMessage();
 });
   document.querySelector('.hamburger')?.addEventListener('click',()=>document.getElementById('primaryNav')?.classList.toggle('open'));
+document.addEventListener('DOMContentLoaded', () => {
+  const btn = document.getElementById('hamburgerBtn');
+  const nav = document.getElementById('primaryNav');
+
+  if (!btn || !nav) return;
+
+  btn.addEventListener('click', () => {
+    const isOpen = nav.classList.toggle('open');
+    btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    document.body.classList.toggle('no-scroll', isOpen);
+  });
+
+  // Close menu when a link is clicked (nicer UX)
+  nav.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      nav.classList.remove('open');
+      btn.setAttribute('aria-expanded', 'false');
+      document.body.classList.remove('no-scroll');
+    });
+  });
+});
