@@ -34,107 +34,110 @@
   <meta name="theme-color" content="#3f80ff">
 </head>
 
-<body class="chamber-home">
+<body class="chamber-home site">
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
-<header>
-  <div class="header-container">
-    <!-- Logo and Text -->
-    <div class="header-logo">
-      <img src="images/download.png" alt="Crescent City Chamber Logo" width="150" height="50" loading="lazy">
-      <div class="logo-text">
-        <span class="main-text">Crescent City</span><br>
-        <span class="sub-text">Chamber of Commerce</span>
+  <header class="site-header" role="banner">
+    <div class="header-container layout-container">
+      <!-- Logo and Text -->
+      <div class="header-logo brand">
+        <img src="images/download.png" alt="Crescent City Chamber Logo" width="150" height="50" loading="lazy" class="brand__logo">
+        <div class="logo-text brand__text">
+          <span class="main-text brand__name">Crescent City</span><br>
+          <span class="sub-text brand__tagline">Chamber of Commerce</span>
+        </div>
       </div>
+
+      <!-- Hamburger for Mobile -->
+      <button class="hamburger nav-toggle" id="hamburgerBtn" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primaryNav">
+        ☰
+      </button>
+
+      <!-- Navigation -->
+      <nav id="primaryNav" class="site-nav" aria-label="Primary navigation" role="navigation">
+        <ul class="nav-menu site-nav__menu">
+          <li class="site-nav__item"><a href="index.html" class="site-nav__link active" aria-current="page">Home</a></li>
+          <li class="site-nav__item"><a href="directory.html" class="site-nav__link">Business Directory</a></li>
+          <li class="site-nav__item"><a href="join.html" class="site-nav__link">Join</a></li>
+          <li class="site-nav__item"><a href="discover.html" class="site-nav__link">Discover</a></li>
+        </ul>
+      </nav>
     </div>
+  </header>
 
-    <!-- Hamburger for Mobile -->
-    <button class="hamburger" id="hamburgerBtn" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primaryNav">
-      ☰
-    </button>
+  <main id="main-content" class="site-main">
+    <!-- Hero Section -->
+    <section class="hero hero-home section section--hero">
+      <picture class="hero-media">
+        <!-- Mobile image -->
+        <source srcset="images/premium4.jpg" media="(max-width: 480px)">
+        <!-- Tablet image -->
+        <source srcset="images/premium4.jpg" media="(max-width: 768px)">
+        <!-- Default / desktop image -->
+        <img src="images/premium4.jpg" alt="Crescent City skyline view" class="hero-image" width="1200" height="675" loading="lazy">
+      </picture>
 
-    <!-- Navigation -->
-    <nav id="primaryNav" aria-label="Primary navigation" role="navigation">
-      <ul class="nav-menu">
-        <li><a href="index.html" class="active" aria-current="page">Home</a></li>
-        <li><a href="directory.html">Business Directory</a></li>
-        <li><a href="join.html">Join</a></li>
-        <li><a href="discover.html">Discover</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
+      <div class="hero-text-content hero__content">
+        <h1 class="hero__title">Welcome to Crescent City</h1>
+        <h2 class="subheading hero__subtitle">Chamber of Commerce</h2>
+        <p class="hero__description">Empowering our local businesses through connection, resources, and growth opportunities.</p>
+        <a href="join.html" class="btn-primary cta cta--primary" aria-label="Join the Crescent City Chamber of Commerce">Join the Chamber</a>
+      </div>
+    </section>
 
-
-  <section class="hero hero-home">
-  <picture>
-    <!-- Mobile image -->
-    <source srcset="images/premium4.jpg" media="(max-width: 480px)">
-    <!-- Tablet image -->
-    <source srcset="images/premium4.jpg" media="(max-width: 768px)">
-    <!-- Default / desktop image -->
-    <img src="images/premium4.jpg" alt="Crescent City skyline view" class="hero-image" width="1200" height="675" loading="lazy">
-  </picture>
-
-  <div class="hero-text-content">
-    <h1>Welcome to Crescent City</h1>
-    <h2 class="subheading">Chamber of Commerce</h2>
-    <p>Empowering our local businesses through connection, resources, and growth opportunities.</p>
-    <a href="join.html" class="btn-primary" aria-label="Join the Crescent City Chamber of Commerce">Join the Chamber</a>
-  </div>
-</section>
-
-
-    <div class="cards-container">
+    <!-- Cards Section -->
+    <div class="cards-container grid grid--cards section--cards">
       <!-- Upcoming Events -->
-      <section class="card events-card" aria-label="Upcoming events">
-        <h2>Upcoming Events</h2>
-        <ul class="events-list">
-          <li>
-            <strong>Business Networking Mixer</strong> - June 10, 2025 at 6:00 PM<br>
-            Join local entrepreneurs for an evening of networking and business growth.
+      <section class="card events-card section section--events" aria-label="Upcoming events">
+        <h2 class="section__title">Upcoming Events</h2>
+        <ul class="events-list list list--events">
+          <li class="events-list__item">
+            <strong class="event__name">Business Networking Mixer</strong> - June 10, 2025 at 6:00 PM<br>
+            <span class="event__desc">Join local entrepreneurs for an evening of networking and business growth.</span>
           </li>
-          <li>
-            <strong>Annual Chamber Awards Gala</strong> - July 15, 2025 at 7:00 PM<br>
-            Celebrate outstanding local businesses and leaders.
+          <li class="events-list__item">
+            <strong class="event__name">Annual Chamber Awards Gala</strong> - July 15, 2025 at 7:00 PM<br>
+            <span class="event__desc">Celebrate outstanding local businesses and leaders.</span>
           </li>
-          <li>
-            <strong>Small Business Workshop Series</strong> - Every Wednesday in August<br>
-            Free workshops on marketing, finance, and more.
+          <li class="events-list__item">
+            <strong class="event__name">Small Business Workshop Series</strong> - Every Wednesday in August<br>
+            <span class="event__desc">Free workshops on marketing, finance, and more.</span>
           </li>
         </ul>
       </section>
 
       <!-- Current Weather -->
-      <section id="current-weather" class="card current-weather-card" aria-labelledby="current-weather-title">
-        <h2 id="current-weather-title">Current Weather</h2>
-        <div id="weather" class="weather-details">
-          <img src="https://openweathermap.org/img/wn/01d@2x.png" alt="Sunny weather icon" class="weather-icon" width="70" height="70" loading="lazy">
+      <section id="current-weather" class="card current-weather-card section section--weather" aria-labelledby="current-weather-title">
+        <h2 id="current-weather-title" class="section__title">Current Weather</h2>
+        <div id="weather" class="weather-details weather">
+          <img src="https://openweathermap.org/img/wn/01d@2x.png" alt="Sunny weather icon" class="weather-icon weather__icon" width="70" height="70" loading="lazy">
         </div>
       </section>
 
       <!-- Weather Forecast -->
-      <section id="weather-forecast" class="card forecast-card" aria-labelledby="forecast-title">
-        <h2 id="forecast-title">3-Day Forecast</h2>
-        <div id="forecast" class="forecast-cards">
+      <section id="weather-forecast" class="card forecast-card section section--forecast" aria-labelledby="forecast-title">
+        <h2 id="forecast-title" class="section__title">3-Day Forecast</h2>
+        <div id="forecast" class="forecast-cards forecast">
           <!-- JS inserts forecast cards here -->
         </div>
       </section>
     </div>
 
-    <!-- Member Spotlights -->
-    <section id="member-spotlights" aria-labelledby="spotlight-title">
-      <h2 id="spotlight-title">Member Spotlights</h2>
-      <div class="spotlight-container" role="list">
-        <!-- Spotlight cards dynamically inserted here -->
-      </div>
-    </section>
-  </main>
+   <!-- Member Spotlights -->
+<section id="member-spotlights" class="section section--spotlights has-tint" aria-labelledby="spotlight-title">
+  <div class="layout-container">
+    <h2 id="spotlight-title" class="section__title section__title--center">Member Spotlights</h2>
+    <div class="spotlight-container spotlights grid-spotlights" role="list">
+      <!-- Spotlight cards dynamically inserted here -->
+    </div>
+  </div>
+</section>
 
-  <footer>
-    <div class="container">
-      <p>&copy; <span id="year"></span> Crescent City Chamber of Commerce. All rights reserved.</p>
-      <p>Last updated: <span id="last-modified"></span></p>
+
+  <footer class="page-footer site-footer" role="contentinfo">
+    <div class="container layout-container">
+      <p class="footer__copy">&copy; <span id="year"></span> Crescent City Chamber of Commerce. All rights reserved.</p>
+      <p class="footer__meta">Last updated: <span id="last-modified"></span></p>
     </div>
   </footer>
 
@@ -149,6 +152,15 @@
       if (link.getAttribute("href") === currentPage) {
         link.classList.add("active");
       }
+    });
+
+    // Hamburger menu toggle functionality
+    const hamburgerBtn = document.getElementById('hamburgerBtn');
+    const primaryNav = document.getElementById('primaryNav');
+
+    hamburgerBtn.addEventListener('click', () => {
+      primaryNav.classList.toggle('active');
+      hamburgerBtn.setAttribute('aria-expanded', primaryNav.classList.contains('active') ? 'true' : 'false');
     });
   </script>
 </body>

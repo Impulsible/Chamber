@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+  // Discover section
   const container = document.querySelector('.discover-container');
   const visitMsgEl = document.getElementById('visit-message');
 
@@ -7,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     return;
   }
 
-  // ✅ Use relative path so it works on any device or environment
+  // Fetch data from discover.json
   fetch('https://impulsible.github.io/wdd231/chamber/discover.json')
     .then(response => {
       if (!response.ok) {
@@ -40,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
       console.error('Fetch error:', error);
     });
 
-  // Visit message code
+  // Visit message logic
   function displayLastVisitMessage() {
     const now = Date.now();
     const lastVisit = localStorage.getItem('lastVisit');
@@ -70,9 +71,8 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   displayLastVisitMessage();
-});
-  document.querySelector('.hamburger')?.addEventListener('click',()=>document.getElementById('primaryNav')?.classList.toggle('open'));
-document.addEventListener('DOMContentLoaded', () => {
+
+  // Hamburger menu toggle
   const btn = document.getElementById('hamburgerBtn');
   const nav = document.getElementById('primaryNav');
 
@@ -91,5 +91,82 @@ document.addEventListener('DOMContentLoaded', () => {
       btn.setAttribute('aria-expanded', 'false');
       document.body.classList.remove('no-scroll');
     });
+  });
+});
+
+fetch('https://api.weatherapi.com/v1/current.json?key=YOUR_API_KEY&q=London')
+  .then(response => response.json())
+  .then(data => {
+    console.log(data); // Make sure this logs correctly
+    // Insert data into the DOM here
+  })
+  .catch(error => {
+    console.error('Error fetching weather data:', error);
+  });
+
+  // Dynamic header height -> CSS var
+(function(){
+  const header = document.querySelector('.site-header');
+  const setHeaderVar = () => {
+    if (!header) return;
+    const h = Math.ceil(header.getBoundingClientRect().height);
+    document.documentElement.style.setProperty('--header-h', `${h}px`);
+  };
+  setHeaderVar();
+  window.addEventListener('resize', setHeaderVar);
+  // re-run after fonts load (header height can change)
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(setHeaderVar);
+  }
+})();
+
+const hamburgerBtn = document.getElementById('hamburgerBtn');
+const siteNav = document.querySelector('.site-nav');
+
+hamburgerBtn.addEventListener('click', () => {
+  siteNav.classList.toggle('active');
+  document.body.classList.toggle('nav-open');
+
+  // Update aria-expanded for accessibility
+  const expanded = hamburgerBtn.getAttribute('aria-expanded') === 'true';
+  hamburgerBtn.setAttribute('aria-expanded', !expanded);
+});
+
+// ===== Universal Hamburger & Hero Adjustment =====
+document.addEventListener("DOMContentLoaded", () => {
+  const header = document.querySelector(".site-header");
+  const navToggle = document.getElementById("hamburgerBtn");
+  const siteNav = document.querySelector(".site-nav");
+
+  // Set CSS variable for header height
+  const setHeaderHeight = () => {
+    if (header) {
+      document.documentElement.style.setProperty(
+        "--header-h",
+        `${header.offsetHeight}px`
+      );
+    }
+  };
+  setHeaderHeight();
+  window.addEventListener("resize", setHeaderHeight);
+
+  // Toggle mobile nav
+  navToggle?.addEventListener("click", () => {
+    const expanded = navToggle.getAttribute("aria-expanded") === "true";
+    navToggle.setAttribute("aria-expanded", String(!expanded));
+    siteNav?.classList.toggle("active");
+    document.body.classList.toggle("nav-open");
+  });
+
+  // Close nav when clicking outside (mobile)
+  document.addEventListener("click", (e) => {
+    if (
+      siteNav?.classList.contains("active") &&
+      !header.contains(e.target)
+    ) {
+      navToggle.setAttribute("aria-expanded", "false");
+      siteNav.classList.remove("active");
+      document.body.classList.remove("nav-open");
+    }
   });
 });
