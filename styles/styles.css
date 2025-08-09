@@ -2190,10 +2190,10 @@ footer a:focus {
 header,
 .site-header{ color: var(--on-dark); }
 
-.nav-menu a{ color:#ffffff !important; }            /* ensure readable on dark */
+.nav-menu a{ color:#ffffff !important; }        
 .nav-menu a:hover,
 .nav-menu a.active{
-  background:#0a66c2;                               /* add pill bg for hover/active */
+  background:#0a66c2;                  
   color:#ffffff !important;
   border-radius:6px;
 }
