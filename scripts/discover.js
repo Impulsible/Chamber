@@ -402,3 +402,95 @@ applyFilters();
   window.addEventListener('resize', () => {
     if (window.innerWidth > 768) closeNav();
   });
+
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const form = document.querySelector(".join-form");
+    const levelSelect = document.getElementById("membershipLevel");
+    const timestampField = document.getElementById("timestamp");
+
+    // ===== Fees table highlight (keeps your behavior) =====
+    const feeRows = document.querySelectorAll('.fee-table__table tbody tr');
+    const highlightFeeRow = (value) => {
+      feeRows.forEach(r => r.classList.toggle('is-active', r.dataset.level === value));
+    };
+    if (levelSelect) {
+      highlightFeeRow(levelSelect.value);
+      levelSelect.addEventListener('change', e => highlightFeeRow(e.target.value));
+    }
+
+    // ===== Form submit handling =====
+    form.addEventListener("submit", (event) => {
+      // native validation first
+      if (!form.checkValidity()) {
+        event.preventDefault();
+        const firstInvalid = form.querySelector(":invalid");
+        firstInvalid?.reportValidity();
+        return;
+      }
+
+      event.preventDefault(); // prevent GET querystring; we’ll redirect manually
+
+      // build clean object for storage
+      const data = {
+        "First Name": form.elements["firstName"]?.value?.trim() || "",
+        "Last Name": form.elements["lastName"]?.value?.trim() || "",
+        "Organizational Title": form.elements["orgTitle"]?.value?.trim() || "",
+        "Email": form.elements["email"]?.value?.trim() || "",
+        "Mobile": form.elements["mobile"]?.value?.trim() || "",
+        "Business / Organization": form.elements["businessName"]?.value?.trim() || "",
+        "Membership Level": (function mapLevel(val){
+          switch(val){
+            case "np": return "NP (Non Profit)";
+            case "bronze": return "Bronze";
+            case "silver": return "Silver";
+            case "gold": return "Gold";
+            default: return "";
+          }
+        })(form.elements["membershipLevel"]?.value || ""),
+        "Description": form.elements["businessDesc"]?.value?.trim() || "",
+        "Timestamp": new Date().toLocaleString()
+      };
+
+      // set hidden timestamp for completeness (keeps your original field populated)
+      timestampField.value = new Date().toISOString();
+
+      // persist to localStorage with the key thankyou.html expects
+      try {
+        localStorage.setItem("joinFormData", JSON.stringify(data));
+      } catch (e) {
+        console.warn("Could not save joinFormData:", e);
+      }
+
+      // redirect to thank you page
+      window.location.href = "thankyou.html";
+    });
+  });
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const container = document.getElementById("thankyouData");
+  let storedData = null;
+
+  try {
+    storedData = JSON.parse(localStorage.getItem("joinFormData"));
+  } catch (e) {
+    console.warn("Could not parse stored joinFormData:", e);
+  }
+
+  if (storedData && typeof storedData === "object") {
+    container.innerHTML = `
+      <h2>Submission Summary</h2>
+      <ul class="thankyou-list">
+        ${Object.entries(storedData).map(([label, value]) =>
+          `<li><strong>${label}:</strong> ${value}</li>`
+        ).join("")}
+      </ul>
+    `;
+  } else {
+    container.innerHTML = `<p>No recent submission found.</p>`;
+  }
+
+  // Clear stored data so refresh doesn't repeat it
+  localStorage.removeItem("joinFormData");
+});

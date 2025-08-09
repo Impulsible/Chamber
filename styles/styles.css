@@ -989,3 +989,303 @@ body.nav-open {
   overflow: hidden;
   touch-action: none;
 }
+
+/* =========================================
+   Join Page (mobile-first)
+   depends on global tokens in :root
+========================================= */
+
+/* Page hero-lite */
+.section--hero-lite {
+  background: linear-gradient(180deg, var(--brand-50), #fff);
+  border-bottom: 1px solid var(--border);
+  padding: var(--space-7) 0 var(--space-6);
+}
+.page-title {
+  margin: 0 0 .35rem;
+  font-family: "Lora", serif;
+  font-size: clamp(1.4rem, 3.2vw, 2rem);
+  color: var(--brand-800);
+}
+.page-subtitle {
+  margin: 0;
+  color: var(--muted);
+  max-width: 65ch;
+}
+
+/* Layout: form + side cards */
+.section--join {
+  padding: var(--space-8) 0 var(--space-9);
+  background: linear-gradient(180deg, #fff, var(--brand-50));
+  border-top: 1px solid var(--border);
+}
+.join-grid {
+  display: grid;
+  gap: var(--space-6);
+  grid-template-columns: 1fr; /* mobile */
+}
+@media (min-width: 960px) {
+  .join-grid {
+    grid-template-columns: minmax(0, 2fr) minmax(0, 1.2fr); /* form | membership cards */
+    align-items: start;
+  }
+}
+
+/* Generic card styling to sit on top of global .card */
+.join-form.card,
+.membership-card.card,
+.modal-content.card {
+  background: #fff;
+  border: 1px solid color-mix(in srgb, var(--border) 85%, var(--brand-300));
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+}
+
+/* ====== Form Card ====== */
+.join-form {
+  display: grid;
+  gap: var(--space-5);
+  padding: var(--space-6);
+}
+.join-form .section__title {
+  margin: 0 0 .25rem;
+  color: var(--brand-800);
+}
+.join-form label {
+  display: grid;
+  gap: .45rem;
+  font-weight: 600;
+  color: var(--brand-800);
+}
+.join-form input,
+.join-form select,
+.join-form textarea {
+  width: 100%;
+  padding: .85rem .9rem;
+  font: inherit;
+  border-radius: .7rem;
+  border: 1px solid var(--border);
+  background: #fff;
+  color: var(--text);
+  transition: border-color .15s ease, box-shadow .15s ease, background .15s ease;
+}
+.join-form input::placeholder,
+.join-form textarea::placeholder {
+  color: color-mix(in srgb, var(--muted) 70%, #bbb);
+}
+.join-form input:focus,
+.join-form select:focus,
+.join-form textarea:focus {
+  outline: none;
+  border-color: var(--brand-400);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--brand-200) 45%, transparent);
+}
+.join-form input:invalid,
+.join-form select:invalid,
+.join-form textarea:invalid {
+  border-color: color-mix(in srgb, var(--danger) 40%, var(--border));
+}
+
+/* Two-column fields at desktop for better scanning */
+@media (min-width: 720px) {
+  .join-form {
+    grid-template-columns: 1fr 1fr;
+  }
+  .join-form .section__title {
+    grid-column: 1 / -1;
+  }
+  .join-form label[for="businessDesc"],
+  .join-form label[for="membershipLevel"],
+  .join-form button[type="submit"] {
+    grid-column: 1 / -1;
+  }
+}
+
+/* Submit button */
+.join-form .btn-primary {
+  justify-self: start;
+  padding: .95rem 1.2rem;
+  border: 1px solid rgba(255,255,255,.25);
+}
+
+/* Helper muted text */
+.muted { color: var(--muted); }
+
+/* ====== Membership Cards (right column) ====== */
+.membership-cards {
+  display: grid;
+  gap: var(--space-5);
+  align-content: start;
+}
+.membership-card {
+  padding: var(--space-5);
+  display: grid;
+  gap: .5rem;
+}
+.membership-card h3 {
+  margin: 0;
+  color: var(--brand-800);
+  font-size: 1.05rem;
+}
+.membership-card .btn-secondary {
+  display: inline-block;
+  font-weight: 700;
+  padding: .6rem .9rem;
+  border-radius: 999px;
+  border: 1px solid var(--brand-200);
+  background: linear-gradient(180deg, #fff, var(--brand-50));
+  color: var(--brand-700);
+  text-decoration: none;
+  transition: transform .08s ease, box-shadow .2s ease, background .2s ease, border-color .2s ease;
+}
+.membership-card .btn-secondary:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+  border-color: var(--brand-300);
+}
+
+/* ====== Modals ====== */
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1100;
+  display: grid;
+  place-items: center;
+  background: rgba(17, 34, 68, .35);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity .18s ease, visibility .18s step-end;
+  padding: var(--space-6);
+}
+.modal.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transition: opacity .18s ease, visibility 0s;
+}
+.modal-content {
+  width: min(720px, 100%);
+  padding: var(--space-6);
+  position: relative;
+  animation: popIn .16s ease-out;
+}
+@keyframes popIn {
+  from { transform: translateY(6px) scale(.992); opacity: .96; }
+  to   { transform: translateY(0) scale(1); opacity: 1; }
+}
+.modal-content h2 {
+  margin-top: 0;
+  color: var(--brand-800);
+}
+.modal-content .list {
+  margin: .25rem 0 0 1.1rem;
+}
+.modal-close {
+  position: absolute;
+  top: .35rem;
+  right: .5rem;
+  font-size: 1.8rem;
+  line-height: 1;
+  background: none;
+  border: none;
+  color: var(--muted);
+  cursor: pointer;
+  padding: .25rem .5rem;
+  border-radius: .5rem;
+}
+.modal-close:hover { background: var(--brand-50); color: var(--brand-700); }
+
+.site-footer .container { max-width: var(--container); margin: 0 auto; }
+
+@media (max-width: 480px) {
+  .join-form { padding: var(--space-5); }
+  .membership-card { padding: var(--space-5); }
+}
+
+/* Footer full width styling */
+.site-footer {
+  background: var(--brand-900);
+  color: #fff;
+  padding: var(--space-3) 0;
+  text-align: center;
+  width: 100%;
+}
+
+.site-footer a {
+  color: var(--brand-200);
+  text-decoration: none;
+}
+
+.site-footer a:hover {
+  text-decoration: underline;
+}
+
+.footer-nav {
+  margin: var(--space-3) 0;
+}
+
+.footer-nav a {
+  margin: 0 var(--space-2);
+}
+
+.fee-table.card {
+  max-width: 900px;           /* keep it from stretching too wide */
+  margin: 2rem auto;          /* center horizontally */
+  padding: 2rem;
+  background: #fff;           /* or use your card background */
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.fee-table__wrap {
+  overflow-x: auto;           /* make mobile scrolling possible */
+  width: 100%;
+}
+
+.fee-table__table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.fee-table__table th,
+.fee-table__table td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #ddd;
+}
+
+.fee-table__table thead {
+  background: #f7f7f7;
+}
+
+.fee-table__table th {
+  font-weight: bold;
+}
+
+.fee-table__table tbody tr:hover {
+  background: #fafafa;        /* subtle hover effect */
+}
+
+#fees-note {
+  font-size: 0.9rem;
+  margin-top: 1rem;
+  color: #666;
+  text-align: center;         /* center note under table */
+}
+
+.thankyou-list {
+  list-style: none;
+  padding: 0;
+  margin: 1rem auto;
+  max-width: 600px;
+  text-align: left;
+}
+
+.thankyou-list li {
+  background: rgba(255, 255, 255, 0.05);
+  margin: 0.5rem 0;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  border: 1px solid var(--border, rgba(255,255,255,0.2));
+}

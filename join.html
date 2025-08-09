@@ -1,202 +1,270 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+  />
   <title>Join | Crescent City Chamber of Commerce</title>
-  <meta name="description" content="Join the Crescent City Chamber of Commerce by filling out the membership application form.">
-  <meta name="author" content="Crescent City Chamber of Commerce">
+  <meta
+    name="description"
+    content="Join the Crescent City Chamber of Commerce by filling out the membership application form."
+  />
+  <meta name="author" content="Crescent City Chamber of Commerce" />
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Crescent City Chamber of Commerce">
-  <meta property="og:description" content="Empowering Crescent City's local businesses with resources, connections, and growth opportunities.">
-  <meta property="og:image" content="https://impulsible.github.io/wdd231/chamber/images/city.jpeg">
-  <meta property="og:url" content="https://impulsible.github.io/wdd231/chamber/directory.html">
-  <meta property="og:type" content="website">
+  <meta property="og:title" content="Crescent City Chamber of Commerce" />
+  <meta
+    property="og:description"
+    content="Empowering Crescent City's local businesses with resources, connections, and growth opportunities."
+  />
+  <meta
+    property="og:image"
+    content="https://impulsible.github.io/wdd231/chamber/images/city.jpeg"
+  />
+  <meta
+    property="og:url"
+    content="https://impulsible.github.io/wdd231/chamber/join.html"
+  />
+  <meta property="og:type" content="website" />
 
   <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Crescent City Chamber of Commerce">
-  <meta name="twitter:description" content="Discover opportunities, build connections, and grow your business within a vibrant local network.">
-  <meta name="twitter:image" content="https://impulsible.github.io/wdd231/chamber/images/city.jpeg">
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Crescent City Chamber of Commerce" />
+  <meta
+    name="twitter:description"
+    content="Discover opportunities, build connections, and grow your business within a vibrant local network."
+  />
+  <meta
+    name="twitter:image"
+    content="https://impulsible.github.io/wdd231/chamber/images/city.jpeg"
+  />
 
-  <link rel="icon" href="images/download_1.png" type="image/png">
-  <!-- Scripts -->
-  <script src="scripts/scripts.js" defer></script>
-  <script src="scripts/toggleview.js" defer></script>
+  <link rel="icon" href="images/download_1.png" type="image/png" />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&display=swap" rel="stylesheet" />
 
-  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles/styles.css">
-  <link rel="stylesheet" href="styles/join.css">
+  <!-- Global styles + join overrides -->
+  <link rel="stylesheet" href="styles/styles.css" />
+
+  <meta name="theme-color" content="#3f80ff" />
 </head>
 <body class="join-page">
-
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
-  <header>
-    <div class="header-container">
-      <div class="header-logo">
-        <img src="images/download.png" alt="Crescent City Chamber Logo" width="150" height="50" loading="lazy">
-        <div class="logo-text">
-          <span class="main-text">Crescent City</span><br>
-          <span class="sub-text">Chamber of Commerce</span>
+  <!-- Header -->
+  <header class="site-header" role="banner">
+    <div class="header-container layout-container">
+      <div class="header-logo brand">
+        <img
+          src="images/download.png"
+          alt="Crescent City Chamber Logo"
+          width="150"
+          height="50"
+          loading="lazy"
+          class="brand__logo"
+        />
+        <div class="logo-text brand__text">
+          <span class="main-text brand__name">Crescent City</span><br />
+          <span class="sub-text brand__tagline">Chamber of Commerce</span>
         </div>
       </div>
 
-      <button class="hamburger" id="hamburgerBtn" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primaryNav">
+      <!-- Hamburger -->
+      <button
+        class="hamburger nav-toggle"
+        id="hamburgerBtn"
+        aria-label="Toggle navigation"
+        aria-expanded="false"
+        aria-controls="primaryNav"
+      >
         ☰
       </button>
 
-      <nav id="primaryNav" aria-label="Primary navigation" role="navigation">
-        <ul class="nav-menu">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="directory.html">Business Directory</a></li>
-          <li><a href="join.html" class="active" aria-current="page">Join</a></li>
-          <li><a href="discover.html">Discover</a></li>
+      <!-- Navigation -->
+      <nav
+        id="primaryNav"
+        class="site-nav"
+        aria-label="Primary navigation"
+        role="navigation"
+      >
+        <ul class="nav-menu site-nav__menu">
+          <li class="site-nav__item">
+            <a href="index.html" class="site-nav__link">Home</a>
+          </li>
+          <li class="site-nav__item">
+            <a href="directory.html" class="site-nav__link">Business Directory</a>
+          </li>
+          <li class="site-nav__item">
+            <a href="join.html" class="site-nav__link active" aria-current="page">Join</a>
+          </li>
+          <li class="site-nav__item">
+            <a href="discover.html" class="site-nav__link">Discover</a>
+          </li>
         </ul>
       </nav>
     </div>
   </header>
+  <!-- Backdrop for mobile menu -->
+  <div id="navBackdrop" aria-hidden="true"></div>
 
   <main id="main-content" tabindex="-1">
-    <h1>Join the Chamber</h1>
-
-    <section class="form-intro">
-  <h1>Join the Chamber</h1>
-  <p>Fill out the form below to become a member of the Crescent City Chamber of Commerce.</p>
-</section>
-
-
-    <div class="container">
-     <form class="join-form" method="get" action="thankyou.html" novalidate>
-        <label for="firstName">
-          First Name
-          <input
-            type="text"
-            id="firstName"
-            name="firstName"
-            title="Enter your first name"
-            autocomplete="given-name"
-            required
-          >
-        </label>
-
-        <label for="lastName">
-          Last Name
-          <input
-            type="text"
-            id="lastName"
-            name="lastName"
-            title="Enter your last name"
-            autocomplete="family-name"
-            required
-          >
-        </label>
-
-        <label for="orgTitle">
-          Organizational Title
-          <input
-            type="text"
-            id="orgTitle"
-            name="orgTitle"
-            title="Enter your organizational title (at least 7 characters, letters, spaces or hyphens only)"
-            autocomplete="organization-title"
-            pattern="^[A-Za-z\s-]{7,}$"
-            placeholder="e.g., Marketing Manager"
-          >
-        </label>
-
-        <label for="email">
-          Email Address
-          <input
-            type="email"
-            id="email"
-            name="email"
-            title="Enter your email address"
-            autocomplete="email"
-            placeholder="example@email.com"
-            required
-          >
-        </label>
-
-        <label for="mobile">
-          Mobile Phone Number
-          <input
-            type="tel"
-            id="mobile"
-            name="mobile"
-            title="Enter your mobile phone number"
-            autocomplete="tel"
-            required
-          >
-        </label>
-
-        <label for="businessName">
-          Business / Organization Name
-          <input
-            type="text"
-            id="businessName"
-            name="businessName"
-            title="Enter your business or organization name"
-            autocomplete="organization"
-            required
-          >
-        </label>
-
-        <label for="membershipLevel">
-          Membership Level
-          <select id="membershipLevel" name="membershipLevel" title="Select your desired membership level" required>
-            <option value="" disabled selected>Select a level</option>
-            <option value="np">NP Membership (Non Profit)</option>
-            <option value="bronze">Bronze Membership</option>
-            <option value="silver">Silver Membership</option>
-            <option value="gold">Gold Membership</option>
-          </select>
-        </label>
-
-        <label for="businessDesc">
-          Business / Organization Description
-          <textarea
-            id="businessDesc"
-            name="businessDesc"
-            title="Describe your business or organization"
-            rows="4"
-          ></textarea>
-        </label>
-
-        <input type="hidden" id="timestamp" name="timestamp">
-
-        <input type="submit" value="Submit Application" id="submitBtn">
-
-      </form>
-
-      <div class="membership-cards" aria-label="Membership level information">
-        <div class="membership-card" tabindex="0">
-          <h3>NP Membership (Non Profit)</h3>
-          <a href="#" data-modal="modal-np" aria-haspopup="dialog" aria-controls="modal-np">Benefits & Details</a>
-        </div>
-        <div class="membership-card" tabindex="0">
-          <h3>Bronze Membership</h3>
-          <a href="#" data-modal="modal-bronze" aria-haspopup="dialog" aria-controls="modal-bronze">Benefits & Details</a>
-        </div>
-        <div class="membership-card" tabindex="0">
-          <h3>Silver Membership</h3>
-          <a href="#" data-modal="modal-silver" aria-haspopup="dialog" aria-controls="modal-silver">Benefits & Details</a>
-        </div>
-        <div class="membership-card" tabindex="0">
-          <h3>Gold Membership</h3>
-          <a href="#" data-modal="modal-gold" aria-haspopup="dialog" aria-controls="modal-gold">Benefits & Details</a>
-        </div>
+    <!-- Hero/banner (lightweight) -->
+    <section class="section section--hero-lite" aria-label="Join the Chamber">
+      <div class="layout-container">
+        <h1 class="page-title">Join the Chamber</h1>
+        <p class="page-subtitle">
+          Become part of a vibrant network. Fill out the application to get started.
+        </p>
       </div>
-    </div>
+    </section>
+
+    <section class="section section--join">
+      <div class="layout-container join-grid">
+        <!-- Form -->
+        <form class="join-form card" method="get" action="thankyou.html" novalidate>
+          <h2 class="section__title">Membership Application</h2>
+
+          <label for="firstName">
+            First Name
+            <input
+              type="text"
+              id="firstName"
+              name="firstName"
+              title="Enter your first name"
+              autocomplete="given-name"
+              required
+            />
+          </label>
+
+          <label for="lastName">
+            Last Name
+            <input
+              type="text"
+              id="lastName"
+              name="lastName"
+              title="Enter your last name"
+              autocomplete="family-name"
+              required
+            />
+          </label>
+
+          <label for="orgTitle">
+            Organizational Title
+            <input
+              type="text"
+              id="orgTitle"
+              name="orgTitle"
+              title="Enter your organizational title (at least 7 characters, letters, spaces or hyphens only)"
+              autocomplete="organization-title"
+              pattern="^[A-Za-z\\s-]{7,}$"
+              placeholder="e.g., Marketing Manager"
+            />
+          </label>
+
+          <label for="email">
+            Email Address
+            <input
+              type="email"
+              id="email"
+              name="email"
+              title="Enter your email address"
+              autocomplete="email"
+              placeholder="example@email.com"
+              required
+            />
+          </label>
+
+          <label for="mobile">
+            Mobile Phone Number
+            <input
+              type="tel"
+              id="mobile"
+              name="mobile"
+              title="Enter your mobile phone number"
+              autocomplete="tel"
+              required
+            />
+          </label>
+
+          <label for="businessName">
+            Business / Organization Name
+            <input
+              type="text"
+              id="businessName"
+              name="businessName"
+              title="Enter your business or organization name"
+              autocomplete="organization"
+              required
+            />
+          </label>
+
+          <label for="membershipLevel">
+            Membership Level
+            <select
+              id="membershipLevel"
+              name="membershipLevel"
+              title="Select your desired membership level"
+              required
+            >
+              <option value="" disabled selected>Select a level</option>
+              <option value="np">NP Membership (Non Profit)</option>
+              <option value="bronze">Bronze Membership</option>
+              <option value="silver">Silver Membership</option>
+              <option value="gold">Gold Membership</option>
+            </select>
+          </label>
+
+          <label for="businessDesc">
+            Business / Organization Description
+            <textarea
+              id="businessDesc"
+              name="businessDesc"
+              title="Describe your business or organization"
+              rows="4"
+            ></textarea>
+          </label>
+
+          <input type="hidden" id="timestamp" name="timestamp" />
+          <button type="submit" id="submitBtn" class="btn-primary">Submit Application</button>
+        </form>
+
+        <!-- Membership level cards -->
+        <aside class="membership-cards" aria-label="Membership level information">
+          <div class="membership-card card" tabindex="0">
+            <h3>NP Membership (Non Profit)</h3>
+            <p class="muted">Perfect for registered non-profits.</p>
+            <a href="#" data-modal="modal-np" aria-haspopup="dialog" aria-controls="modal-np" class="btn-secondary">Benefits &amp; Details</a>
+          </div>
+
+          <div class="membership-card card" tabindex="0">
+            <h3>Bronze Membership</h3>
+            <p class="muted">Great for small businesses getting started.</p>
+            <a href="#" data-modal="modal-bronze" aria-haspopup="dialog" aria-controls="modal-bronze" class="btn-secondary">Benefits &amp; Details</a>
+          </div>
+
+          <div class="membership-card card" tabindex="0">
+            <h3>Silver Membership</h3>
+            <p class="muted">Extra visibility and event perks.</p>
+            <a href="#" data-modal="modal-silver" aria-haspopup="dialog" aria-controls="modal-silver" class="btn-secondary">Benefits &amp; Details</a>
+          </div>
+
+          <div class="membership-card card" tabindex="0">
+            <h3>Gold Membership</h3>
+            <p class="muted">Premium exposure and sponsorships.</p>
+            <a href="#" data-modal="modal-gold" aria-haspopup="dialog" aria-controls="modal-gold" class="btn-secondary">Benefits &amp; Details</a>
+          </div>
+        </aside>
+      </div>
+    </section>
   </main>
 
   <!-- Modals -->
-  <div class="modal" id="modal-np" role="dialog" aria-modal="true" aria-labelledby="modal-np-title" tabindex="-1">
-    <div class="modal-content">
+  <div class="modal" id="modal-np" role="dialog" aria-modal="true" aria-labelledby="modal-np-title">
+    <div class="modal-content card">
       <button class="modal-close" aria-label="Close NP Membership modal">&times;</button>
       <h2 id="modal-np-title">NP Membership Benefits</h2>
-      <ul>
+      <ul class="list">
         <li>No membership fee</li>
         <li>Access to nonprofit networking events</li>
         <li>Free listing in the business directory</li>
@@ -204,11 +272,11 @@
     </div>
   </div>
 
-  <div class="modal" id="modal-bronze" role="dialog" aria-modal="true" aria-labelledby="modal-bronze-title" tabindex="-1">
-    <div class="modal-content">
+  <div class="modal" id="modal-bronze" role="dialog" aria-modal="true" aria-labelledby="modal-bronze-title">
+    <div class="modal-content card">
       <button class="modal-close" aria-label="Close Bronze Membership modal">&times;</button>
       <h2 id="modal-bronze-title">Bronze Membership Benefits</h2>
-      <ul>
+      <ul class="list">
         <li>Invitation to exclusive events</li>
         <li>Discounts on workshops</li>
         <li>Basic advertising in newsletters</li>
@@ -216,11 +284,11 @@
     </div>
   </div>
 
-  <div class="modal" id="modal-silver" role="dialog" aria-modal="true" aria-labelledby="modal-silver-title" tabindex="-1">
-    <div class="modal-content">
+  <div class="modal" id="modal-silver" role="dialog" aria-modal="true" aria-labelledby="modal-silver-title">
+    <div class="modal-content card">
       <button class="modal-close" aria-label="Close Silver Membership modal">&times;</button>
       <h2 id="modal-silver-title">Silver Membership Benefits</h2>
-      <ul>
+      <ul class="list">
         <li>All Bronze benefits</li>
         <li>Priority event sponsorship</li>
         <li>Featured spotlight ads on homepage</li>
@@ -228,11 +296,11 @@
     </div>
   </div>
 
-  <div class="modal" id="modal-gold" role="dialog" aria-modal="true" aria-labelledby="modal-gold-title" tabindex="-1">
-    <div class="modal-content">
+  <div class="modal" id="modal-gold" role="dialog" aria-modal="true" aria-labelledby="modal-gold-title">
+    <div class="modal-content card">
       <button class="modal-close" aria-label="Close Gold Membership modal">&times;</button>
       <h2 id="modal-gold-title">Gold Membership Benefits</h2>
-      <ul>
+      <ul class="list">
         <li>All Silver benefits</li>
         <li>Premium advertising opportunities</li>
         <li>Free event space</li>
@@ -241,121 +309,194 @@
     </div>
   </div>
 
-  <footer>
-  <p>© <span id="year">2025</span> Crescent City Chamber of Commerce. All rights reserved.</p>
-  <p id="last-modified">Last updated: 05/25/2025 20:36:51</p>
+  <!-- Add this right after the </aside> membership-cards in .join-grid -->
+<section class="fee-table card" aria-labelledby="fees-title">
+  <h2 id="fees-title" class="section__title">Membership Fees</h2>
+  <div class="fee-table__wrap">
+    <table class="fee-table__table" aria-describedby="fees-note">
+      <thead>
+        <tr>
+          <th scope="col">Level</th>
+          <th scope="col">Annual Fee</th>
+          <th scope="col">Perks Snapshot</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr data-level="np">
+          <th scope="row">NP (Non Profit)</th>
+          <td>$0</td>
+          <td>Directory listing, nonprofit events</td>
+        </tr>
+        <tr data-level="bronze">
+          <th scope="row">Bronze</th>
+          <td>$199</td>
+          <td>Events access, workshop discounts</td>
+        </tr>
+        <tr data-level="silver">
+          <th scope="row">Silver</th>
+          <td>$399</td>
+          <td>+ Priority sponsorship, homepage spotlight</td>
+        </tr>
+        <tr data-level="gold">
+          <th scope="row">Gold</th>
+          <td>$699</td>
+          <td>+ Premium ads, free event space, training</td>
+        </tr>
+      </tbody>
+    </table>
+    <p id="fees-note" class="muted">Fees are billed annually. Perks are summarized—see membership modals for full details.</p>
+  </div>
+</section>
+
+  <footer class="site-footer"
+    <p>© <span id="year">2025</span> Crescent City Chamber of Commerce</p>
+    <p>123 Main Street, Crescent City · <a href="mailto:info@crescentcitychamber.com">info@crescentcitychamber.com</a></p>
+    <p id="last-modified">Last updated: <span></span></p>
+  </div>
 </footer>
 
-
+  <!-- Scripts -->
   <script>
-    // Footer year and last modified date
+    // Footer meta
     document.getElementById('year').textContent = new Date().getFullYear();
-    document.getElementById('last-modified').textContent = document.lastModified;
+    document.querySelector('#last-modified span').textContent = document.lastModified;
 
-    // Highlight current page nav link
+    // Active nav link
     const currentPage = window.location.pathname.split('/').pop();
-    document.querySelectorAll('.nav-menu a').forEach(link => {
-      if(link.getAttribute('href') === currentPage){
-        link.classList.add('active');
-      }
+    document.querySelectorAll('.site-nav__link').forEach((link) => {
+      if (link.getAttribute('href') === currentPage) link.classList.add('active');
     });
 
-    // Set timestamp hidden input value to current date/time
-    const timestampInput = document.getElementById('timestamp');
-    timestampInput.value = new Date().toISOString();
+    // Mobile nav toggle + backdrop
+    const hamburgerBtn = document.getElementById('hamburgerBtn');
+    const primaryNav   = document.getElementById('primaryNav');
+    const backdrop     = document.getElementById('navBackdrop');
 
-    // Modal functionality
+    function openNav(){
+      primaryNav.classList.add('active');
+      document.body.classList.add('nav-open');
+      hamburgerBtn.setAttribute('aria-expanded', 'true');
+      backdrop.classList.add('show');
+    }
+    function closeNav(){
+      primaryNav.classList.remove('active');
+      document.body.classList.remove('nav-open');
+      hamburgerBtn.setAttribute('aria-expanded', 'false');
+      backdrop.classList.remove('show');
+    }
+    hamburgerBtn.addEventListener('click', () => {
+      primaryNav.classList.contains('active') ? closeNav() : openNav();
+    });
+    backdrop.addEventListener('click', closeNav);
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && primaryNav.classList.contains('active')) closeNav();
+    });
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 768) closeNav();
+    });
+
+    // Timestamp hidden field
+    const timestampField = document.getElementById('timestamp');
+    timestampField.value = new Date().toISOString();
+
+    // Modals
     const modalLinks = document.querySelectorAll('[data-modal]');
     const modals = document.querySelectorAll('.modal');
-    const modalCloseButtons = document.querySelectorAll('.modal-close');
 
-    modalLinks.forEach(link => {
+    modalLinks.forEach((link) => {
       link.addEventListener('click', (e) => {
         e.preventDefault();
         const modalId = link.getAttribute('data-modal');
         const modal = document.getElementById(modalId);
-        if(modal){
+        if (modal) {
           modal.classList.add('active');
           modal.setAttribute('tabindex', '-1');
           modal.focus();
+          document.body.classList.add('nav-open'); // lock scroll when modal open
         }
       });
     });
 
-    modalCloseButtons.forEach(button => {
-      button.addEventListener('click', () => {
-        const modal = button.closest('.modal');
+    document.querySelectorAll('.modal-close').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const modal = btn.closest('.modal');
         modal.classList.remove('active');
+        document.body.classList.remove('nav-open');
       });
     });
 
-    // Close modal on Escape key
     window.addEventListener('keydown', (e) => {
-      if(e.key === "Escape"){
-        modals.forEach(modal => modal.classList.remove('active'));
+      if (e.key === 'Escape') {
+        modals.forEach((m) => m.classList.remove('active'));
+        document.body.classList.remove('nav-open');
       }
     });
 
-    // Trap focus inside modal while open (basic)
-    modals.forEach(modal => {
+    // Focus trap (simple)
+    modals.forEach((modal) => {
       modal.addEventListener('keydown', (e) => {
-        if(e.key === 'Tab'){
-          const focusableElements = modal.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
-          const firstEl = focusableElements[0];
-          const lastEl = focusableElements[focusableElements.length -1];
-
-          if(e.shiftKey){
-            if(document.activeElement === firstEl){
-              e.preventDefault();
-              lastEl.focus();
-            }
-          } else {
-            if(document.activeElement === lastEl){
-              e.preventDefault();
-              firstEl.focus();
-            }
-          }
+        if (e.key !== 'Tab') return;
+        const focusEls = modal.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+        if (!focusEls.length) return;
+        const firstEl = focusEls[0];
+        const lastEl  = focusEls[focusEls.length - 1];
+        if (e.shiftKey && document.activeElement === firstEl) {
+          e.preventDefault(); lastEl.focus();
+        } else if (!e.shiftKey && document.activeElement === lastEl) {
+          e.preventDefault(); firstEl.focus();
         }
       });
     });
-  </script>
 
-  
-  <script>
-  // Set timestamp and save form data on submit
-
-  document.addEventListener("DOMContentLoaded", () => {
-    const form = document.querySelector(".join-form");
-    const timestampField = document.getElementById("timestamp");
-
-    form.addEventListener("submit", (event) => {
+    // Form validation + save to localStorage
+    const form = document.querySelector('.join-form');
+    form.addEventListener('submit', (event) => {
       if (!form.checkValidity()) {
         event.preventDefault();
-        alert("Please fill out all required fields.");
-
-        // Focus the first invalid field
-        const firstInvalid = form.querySelector(":invalid");
+        const firstInvalid = form.querySelector(':invalid');
         if (firstInvalid) firstInvalid.reportValidity();
         return;
       }
-
-      // Save form data to localStorage
-      const formData = {
-        firstName: form.elements["firstName"].value,
-        lastName: form.elements["lastName"].value,
-        orgTitle: form.elements["orgTitle"].value,
-        email: form.elements["email"].value,
-        mobile: form.elements["mobile"].value,
-        businessName: form.elements["businessName"].value,
-        membershipLevel: form.elements["membershipLevel"].value,
-        businessDesc: form.elements["businessDesc"].value,
+      const data = {
+        firstName: form.elements['firstName'].value,
+        lastName: form.elements['lastName'].value,
+        orgTitle: form.elements['orgTitle'].value,
+        email: form.elements['email'].value,
+        mobile: form.elements['mobile'].value,
+        businessName: form.elements['businessName'].value,
+        membershipLevel: form.elements['membershipLevel'].value,
+        businessDesc: form.elements['businessDesc'].value,
         timestamp: new Date().toLocaleString()
       };
-
-      timestampField.value = formData.timestamp;
-      localStorage.setItem("formData", JSON.stringify(formData));
+      document.getElementById('timestamp').value = data.timestamp;
+      localStorage.setItem('joinFormData', JSON.stringify(data));
     });
-  });
+  </script>
+
+  <script>
+  // Highlight fee row based on selected level
+  (function() {
+    const select = document.getElementById('membershipLevel');
+    const rows = document.querySelectorAll('.fee-table__table tbody tr');
+
+    const highlight = (value) => {
+      rows.forEach(r => r.classList.toggle('is-active', r.dataset.level === value));
+    };
+
+    // on load (if preselected)
+    if (select && select.value) highlight(select.value);
+
+    // on change
+    select?.addEventListener('change', (e) => {
+      highlight(e.target.value);
+      // optional: smooth scroll to fees
+      document.querySelector('.fee-table')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
+
+    // footer meta
+    document.querySelector('#last-modified span').textContent = document.lastModified;
+  })();
 </script>
+
 </body>
 </html>
