@@ -170,3 +170,235 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
+// ===== Directory live filter =====
+(function () {
+  const input = document.getElementById('search-input');
+  const directory = document.getElementById('directoryContent');
+
+  // Add a live region for result counts
+  const announcer = document.createElement('div');
+  announcer.id = 'results-announcer';
+  announcer.setAttribute('aria-live', 'polite');
+  announcer.className = 'sr-only';
+  directory.before(announcer);
+
+  // Helper: normalize text
+  const norm = (str) => (str || '').toLowerCase().trim();
+
+  // Debounce for smoother typing
+  let t;
+  const debounce = (fn, delay = 120) => (...args) => {
+    clearTimeout(t); t = setTimeout(() => fn(...args), delay);
+  };
+
+  // Core filter
+  const filterCards = () => {
+    const q = norm(input.value);
+    let totalVisible = 0;
+
+    // Each category group = heading + row after it
+    const headings = directory.querySelectorAll('.directory-category-title');
+
+    headings.forEach((h) => {
+      const row = h.nextElementSibling;
+      if (!row || !row.classList.contains('directory-category-row')) return;
+
+      // Filter cards inside this row
+      let visibleInRow = 0;
+      const cards = row.querySelectorAll('.business-card');
+
+      cards.forEach((card) => {
+        const text = norm(card.innerText);
+        const hit = !q || text.includes(q);
+        card.style.display = hit ? '' : 'none';
+        if (hit) visibleInRow++;
+      });
+
+      // Show/hide whole category if empty
+      const showRow = visibleInRow > 0;
+      row.style.display = showRow ? '' : 'none';
+      h.style.display = showRow ? '' : 'none';
+
+      totalVisible += visibleInRow;
+    });
+
+    // Announce & show "no results" fallback
+    announcer.textContent = `${totalVisible} result${totalVisible === 1 ? '' : 's'} found.`;
+    let empty = document.getElementById('no-results');
+    if (!empty) {
+      empty = document.createElement('p');
+      empty.id = 'no-results';
+      empty.className = 'no-results';
+      empty.textContent = 'No results match your search.';
+      directory.after(empty);
+    }
+    empty.style.display = totalVisible === 0 ? 'block' : 'none';
+  };
+
+  // Bind
+  input.addEventListener('input', debounce(filterCards));
+  // Run once to set initial state (in case of prefilled value / back nav)
+  filterCards();
+})();
+
+
+// =============== View toggle ===============
+const gridBtn = document.getElementById('gridBtn');
+const listBtn = document.getElementById('listBtn');
+const rows = document.querySelectorAll('.directory-category-row');
+
+function setView(view){
+  rows.forEach(row => {
+    row.classList.toggle('grid-view', view === 'grid');
+    row.classList.toggle('list-view', view === 'list');
+  });
+  gridBtn.setAttribute('aria-pressed', view === 'grid');
+  listBtn.setAttribute('aria-pressed', view === 'list');
+}
+gridBtn.addEventListener('click', () => setView('grid'));
+listBtn.addEventListener('click', () => setView('list'));
+setView('grid'); // default
+
+// =============== Live search + filters ===============
+const input = document.getElementById('search-input');
+const tierSel = document.getElementById('filter-tier');
+const catSel  = document.getElementById('filter-category');
+const directory = document.getElementById('directoryContent');
+
+// Live region for counts
+let announcer = document.getElementById('results-announcer');
+if (!announcer){
+  announcer = document.createElement('div');
+  announcer.id = 'results-announcer';
+  announcer.setAttribute('aria-live','polite');
+  announcer.style.position = 'absolute';
+  announcer.style.left = '-9999px';
+  directory.before(announcer);
+}
+
+const norm = s => (s || '').toLowerCase().trim();
+let timer;
+const debounce = (fn, d=120) => (...a)=>{ clearTimeout(timer); timer = setTimeout(()=>fn(...a), d); };
+
+function applyFilters(){
+  const q = norm(input?.value);
+  const tier = norm(tierSel?.value);
+  const cat  = norm(catSel?.value);
+
+  const headings = directory.querySelectorAll('.directory-category-title');
+  let total = 0;
+
+  headings.forEach(h => {
+    const row = h.nextElementSibling;
+    if (!row || !row.classList.contains('directory-category-row')) return;
+
+    let visibleInRow = 0;
+    row.querySelectorAll('.business-card').forEach(card => {
+      const t = norm(card.dataset.tier);
+      const c = norm(card.dataset.category);
+      const text = norm(card.innerText);
+
+      const hitSearch = !q || text.includes(q);
+      const hitTier   = !tier || t === tier;
+      const hitCat    = !cat  || c === cat;
+
+      const show = hitSearch && hitTier && hitCat;
+      card.style.display = show ? '' : 'none';
+      if (show) visibleInRow++;
+    });
+
+    // Show/hide whole category if empty
+    const showRow = visibleInRow > 0;
+    row.style.display = showRow ? '' : 'none';
+    h.style.display = showRow ? '' : 'none';
+
+    total += visibleInRow;
+  });
+
+  announcer.textContent = `${total} result${total===1?'':'s'} found.`;
+
+  // No results message
+  let empty = document.getElementById('no-results');
+  if (!empty){
+    empty = document.createElement('p');
+    empty.id = 'no-results';
+    empty.className = 'no-results';
+    empty.textContent = 'No results match your filters.';
+    directory.after(empty);
+  }
+  empty.style.display = total === 0 ? 'block' : 'none';
+}
+
+// Bind inputs
+input?.addEventListener('input', debounce(applyFilters));
+tierSel?.addEventListener('change', applyFilters);
+catSel?.addEventListener('change', applyFilters);
+
+// Initial
+applyFilters();
+
+
+  // Filter by tier; pass "", "gold", "silver", "bronze", or "platinum"
+  function setTierFilter(tier) {
+    const directory = document.getElementById('directoryContent');
+    const headings = directory.querySelectorAll('.directory-category-title');
+
+    headings.forEach(h => {
+      const row = h.nextElementSibling;
+      if (!row || !row.classList.contains('directory-category-row')) return;
+
+      let visible = 0;
+      row.querySelectorAll('.business-card').forEach(card => {
+        const t = (card.dataset.tier || '').toLowerCase();
+        const show = !tier || t === tier.toLowerCase();
+        card.style.display = show ? '' : 'none';
+        if (show) visible++;
+      });
+
+      // toggle whole category block if empty after filter
+      h.style.display = visible ? '' : 'none';
+      row.style.display = visible ? '' : 'none';
+    });
+  }
+
+  // ✅ Filter to GOLD on load
+  setTierFilter('gold');
+
+  // Example: expose to console so you can switch quickly:
+  // setTierFilter('');        // show all
+  // setTierFilter('silver');  // show only Silver
+  // setTierFilter('bronze');  // show only Bronze
+  // setTierFilter('platinum');// show only Platinum
+
+   const hamburgerBtn = document.getElementById('hamburgerBtn');
+  const primaryNav   = document.getElementById('primaryNav');
+  const backdrop     = document.getElementById('navBackdrop');
+
+  function openNav(){
+    primaryNav.classList.add('active');
+    document.body.classList.add('nav-open');
+    hamburgerBtn.setAttribute('aria-expanded', 'true');
+    backdrop.classList.add('show');
+  }
+  function closeNav(){
+    primaryNav.classList.remove('active');
+    document.body.classList.remove('nav-open');
+    hamburgerBtn.setAttribute('aria-expanded', 'false');
+    backdrop.classList.remove('show');
+  }
+
+  hamburgerBtn.addEventListener('click', () => {
+    if (primaryNav.classList.contains('active')) closeNav();
+    else openNav();
+  });
+
+  backdrop.addEventListener('click', closeNav);
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && primaryNav.classList.contains('active')) closeNav();
+  });
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 768) closeNav();
+  });
