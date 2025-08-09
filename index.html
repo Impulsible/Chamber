@@ -66,16 +66,24 @@
 </header>
 
 
-  <main id="main-content" tabindex="-1">
-    <section class="hero-banner" aria-label="Welcome to Crescent City Chamber of Commerce">
-      <img src="images/premium4.jpg" alt="Crescent City skyline view" class="hero-image" width="1200" height="675" loading="lazy">
-      <div class="hero-text-content">
-        <h1>Welcome to Crescent City</h1>
-        <h2 class="subheading">Chamber of Commerce</h2>
-        <p>Empowering our local businesses through connection, resources, and growth opportunities.</p>
-        <a href="join.html" class="btn-primary" aria-label="Join the Crescent City Chamber of Commerce">Join the Chamber</a>
-      </div>
-    </section>
+  <section class="hero hero-home">
+  <picture>
+    <!-- Mobile image -->
+    <source srcset="images/premium4.jpg" media="(max-width: 480px)">
+    <!-- Tablet image -->
+    <source srcset="images/premium4.jpg" media="(max-width: 768px)">
+    <!-- Default / desktop image -->
+    <img src="images/premium4.jpg" alt="Crescent City skyline view" class="hero-image" width="1200" height="675" loading="lazy">
+  </picture>
+
+  <div class="hero-text-content">
+    <h1>Welcome to Crescent City</h1>
+    <h2 class="subheading">Chamber of Commerce</h2>
+    <p>Empowering our local businesses through connection, resources, and growth opportunities.</p>
+    <a href="join.html" class="btn-primary" aria-label="Join the Crescent City Chamber of Commerce">Join the Chamber</a>
+  </div>
+</section>
+
 
     <div class="cards-container">
       <!-- Upcoming Events -->

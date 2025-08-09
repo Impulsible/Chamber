@@ -2504,3 +2504,152 @@ a:focus-visible, button:focus-visible {
     color: #fff;
   }
 }
+/* MOBILE-ONLY patch for Discover page */
+@media (max-width: 640px) {
+  .discover-page .header-container{
+    display:flex;align-items:center;justify-content:space-between;gap:.75rem;padding:.75rem 1rem;
+  }
+  .discover-page .header-logo{display:flex;align-items:center;gap:.5rem;}
+  .discover-page .header-logo img{display:block;height:50px;width:auto;border-radius:6px}
+  .discover-page .logo-text .main-text{font-family:"Lora",serif;font-weight:700;font-size:1.05rem;line-height:1}
+  .discover-page .logo-text .sub-text{font-size:.8rem;opacity:.85;line-height:1}
+
+  /* Hamburger + nav (mobile only) */
+  .discover-page .hamburger{
+    background:transparent;border:0;cursor:pointer;font-size:1.5rem;line-height:1;
+    padding:.35rem .5rem;border-radius:.5rem;color:#fff;
+  }
+  .discover-page #primaryNav{
+    display:none;position:absolute;top:64px;left:1rem;right:1rem;background:#003f5c;
+    border-radius:.75rem;box-shadow:0 8px 20px rgba(0,0,0,.25);z-index:1000;
+  }
+  .discover-page #primaryNav.open{display:block}
+  .discover-page .nav-menu{list-style:none;margin:0;padding:.75rem;display:flex;flex-direction:column;gap:.5rem;}
+  .discover-page .nav-menu a{
+    display:block;text-decoration:none;text-align:center;padding:.75rem 1rem;border-radius:.5rem;
+    color:#fff;background:#005f73;font-weight:600;
+  }
+  .discover-page .nav-menu a.active,
+  .discover-page .nav-menu a:hover{color:#ffa600}
+
+  /* Prevent body scroll when menu open */
+  .discover-page.no-scroll, body.no-scroll{height:100vh;overflow:hidden;}
+
+  /* HERO — no overflow on mobile */
+  .discover-page .hero-banner{
+    position:relative;min-height:60vh;overflow:hidden;text-align:center;isolation:isolate;
+  }
+  .discover-page .hero-banner .hero-image{
+    position:absolute;inset:0;width:100%;height:100%;object-fit:cover;max-width:none; /* prevent horizontal overflow */
+    display:block;filter:brightness(.6);z-index:1;
+  }
+  .discover-page .hero-text-content{
+    position:absolute;inset:0;z-index:2;display:flex;align-items:center;justify-content:center;
+    flex-direction:column;gap:.5rem;padding:1rem;text-shadow:0 2px 6px rgba(0,0,0,.5);color:#fff;
+  }
+  .discover-page .hero-text-content h1{margin:.25rem 0;font-size:1.8rem}
+  .discover-page .hero-text-content .subheading{margin:0;font-size:1.15rem;opacity:.95}
+  .discover-page .hero-text-content p{max-width:45ch;margin:.25rem 0 0}
+
+  /* Sidebar message */
+  .discover-page .sidebar-message{
+    margin:1rem auto;max-width:900px;background:#fff;border-radius:.75rem;
+    padding:1rem;box-shadow:0 4px 12px rgba(0,0,0,.08);font-size:.95rem;color:#333;
+  }
+
+  /* Discover cards */
+  .discover-page .discover-container{
+    display:grid;grid-template-columns:1fr;gap:1rem;margin:1.25rem auto 2rem;padding:0 1rem;max-width:900px;
+  }
+  .discover-page .discover-container .card{
+    background:#fff;border-radius:.75rem;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,.08);
+    display:grid;gap:.75rem;
+  }
+  .discover-page .discover-container .card img{width:100%;height:auto;display:block}
+  .discover-page .discover-container .card .card-body{padding:1rem}
+  .discover-page .discover-container .card h3{margin:.25rem 0 .5rem;font-size:1.1rem}
+  .discover-page .discover-container .card p{margin:0;color:#444;line-height:1.55}
+
+  /* Footer container */
+  .discover-page footer .container{max-width:900px;margin:0 auto;padding:1rem;text-align:center;}
+}
+/* =======================
+   HERO - Mobile First
+======================= */
+.hero {
+  position: relative;
+  text-align: center;
+  isolation: isolate;
+}
+
+.hero img.hero-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.hero-text-content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+  padding: 1rem;
+  color: #fff;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, .5);
+}
+
+.hero-text-content h1 {
+  margin: .25rem 0;
+  font-size: 1.8rem;
+}
+
+.hero-text-content .subheading {
+  margin: 0;
+  font-size: 1.15rem;
+  opacity: .95;
+}
+
+.hero-text-content p {
+  max-width: 45ch;
+  margin: .25rem 0 0;
+}
+
+.hero-text-content .btn-primary {
+  background: #005f73;
+  color: #fff;
+  padding: .75rem 1.25rem;
+  border-radius: .5rem;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* =======================
+   Only affects mobile
+======================= */
+@media (max-width: 640px) {
+  .hero-text-content {
+    padding: 1rem;
+    text-align: center;
+  }
+
+  .hero-text-content h1 {
+    font-size: 1.4rem;
+  }
+
+  .hero-text-content .subheading {
+    font-size: 1rem;
+  }
+
+  .hero-text-content p {
+    font-size: 0.9rem;
+  }
+
+  .hero-text-content .btn-primary {
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+  }
+}
