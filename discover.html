@@ -1,110 +1,238 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Explore the vibrant attractions and demographics of Crescent City. Discover what makes our community unique.">
-  <meta name="author" content="Crescent City Chamber of Commerce">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Explore the vibrant attractions and demographics of Crescent City. Discover what makes our community unique." />
+  <meta name="author" content="Crescent City Chamber of Commerce" />
   <title>Crescent City Chamber of Commerce | Discover</title>
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="Discover Crescent City">
-  <meta property="og:description" content="Explore the vibrant attractions and demographics of Crescent City. Discover what makes our community unique.">
-  <meta property="og:image" content="https://impulsible.github.io/wdd231/chamber/images/city.jpeg">
-  <meta property="og:url" content="https://impulsible.github.io/wdd231/chamber/discover.html">
-  <meta property="og:type" content="website">
+  <!-- OG / Twitter -->
+  <meta property="og:title" content="Discover Crescent City" />
+  <meta property="og:description" content="Explore the vibrant attractions and demographics of Crescent City. Discover what makes our community unique." />
+  <meta property="og:image" content="https://impulsible.github.io/wdd231/chamber/images/city.jpeg" />
+  <meta property="og:url" content="https://impulsible.github.io/wdd231/chamber/discover.html" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
 
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Discover Crescent City">
-  <meta name="twitter:description" content="Explore the vibrant attractions and demographics of Crescent City. Discover what makes our community unique.">
-  <meta name="twitter:image" content="https://impulsible.github.io/wdd231/chamber/images/city.jpeg">
+  <link rel="icon" href="images/download_1.png" type="image/png" />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&display=swap" rel="stylesheet" />
 
-  <link rel="icon" href="images/download_1.png" type="image/png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&display=swap" rel="stylesheet">
+  <!-- Use the same global stylesheet as Index. Remove page-specific medium/large css to avoid overrides. -->
+  <link rel="stylesheet" href="styles/styles.css" />
 
-  <link rel="stylesheet" href="styles/styles.css">
-  <link rel="stylesheet" href="styles/medium.css" media="(min-width: 641px)">
-  <link rel="stylesheet" href="styles/large.css" media="(min-width: 1025px)">
-  <script src="scripts/visittracker.js" defer></script>
-  <script src="scripts/discover.js" defer></script>
-  <!-- Scripts -->
-  <script src="scripts/scripts.js" defer></script>
-  <script src="scripts/toggleview.js" defer></script>
-  <script src="scripts/weather.js" defer></script>
-  <script src="scripts/spotlight.js" defer></script>
-  <script src="scripts/forecast.js" defer></script>
-
-  <meta name="theme-color" content="#3f80ff">
+  <meta name="theme-color" content="#3f80ff" />
 </head>
 
 <body class="discover-page">
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
-  <header>
-    <div class="header-container">
-      <div class="header-logo">
-        <img src="images/download_1.webp" alt="Crescent City Chamber Logo" width="150" height="50" loading="lazy">
-        <div class="logo-text">
-          <span class="main-text">Crescent City</span><br>
-          <span class="sub-text">Chamber of Commerce</span>
+  <!-- Shared Header (same classes as index) -->
+  <header class="site-header" role="banner">
+    <div class="header-container layout-container">
+      <div class="header-logo brand">
+        <img src="images/download.png" alt="Crescent City Chamber Logo" width="150" height="50" loading="lazy" class="brand__logo" />
+        <div class="logo-text brand__text">
+          <span class="main-text brand__name">Crescent City</span><br />
+          <span class="sub-text brand__tagline">Chamber of Commerce</span>
         </div>
       </div>
 
-      <button class="hamburger" id="hamburgerBtn" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primaryNav">☰</button>
+      <button class="hamburger nav-toggle" id="hamburgerBtn" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primaryNav">☰</button>
 
-      <nav id="primaryNav" aria-label="Primary navigation">
-        <ul class="nav-menu">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="directory.html">Business Directory</a></li>
-          <li><a href="join.html">Join</a></li>
-          <li><a href="discover.html" class="active" aria-current="page">Discover</a></li>
+      <nav id="primaryNav" class="site-nav" aria-label="Primary navigation" role="navigation">
+        <ul class="nav-menu site-nav__menu">
+          <li class="site-nav__item"><a href="index.html" class="site-nav__link">Home</a></li>
+          <li class="site-nav__item"><a href="directory.html" class="site-nav__link">Business Directory</a></li>
+          <li class="site-nav__item"><a href="join.html" class="site-nav__link">Join</a></li>
+          <li class="site-nav__item"><a href="discover.html" class="site-nav__link active" aria-current="page">Discover</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <!-- ✅ Only ONE <main> -->
   <main id="main-content" tabindex="-1">
-    <section class="hero-banner" aria-label="Discover Crescent City">
-      <img src="images/premium4.jpg" alt="Crescent City skyline view" class="hero-image" width="1200" height="675" loading="lazy">
-      <div class="hero-text-content">
-        <h1>Discover Crescent City</h1>
-        <h2 class="subheading">Explore Our Community</h2>
-        <p>Learn about the attractions, demographics, and unique features that make Crescent City a great place to live and work.</p>
+    <!-- SAME hero pattern as index -->
+    <section class="section section--hero" aria-label="Discover Crescent City">
+      <div class="hero-media">
+        <img src="images/premium4.jpg" alt="Crescent City skyline view" class="hero-image" width="1600" height="900" loading="lazy" />
+      </div>
+      <div class="hero__content">
+        <h1 class="hero__title">Discover Crescent City</h1>
+        <p class="hero__subtitle">Explore Our Community</p>
+        <p class="hero__description">
+          Learn about the attractions, demographics, and unique features that make Crescent City a great place to live and work.
+        </p>
       </div>
     </section>
 
-    <!-- ✅ Sidebar message -->
-   <aside id="visit-message" class="sidebar-message"></aside>
+    <!-- Little visit message card (matches card style) -->
+    <aside id="visit-message" class="layout-container">
+      <div class="card" style="margin-top: var(--space-6);">
+        <p class="muted" id="visitMessageText">Welcome! Enjoy exploring the attractions.</p>
+      </div>
+    </aside>
 
-<!-- ✅ Discover container section -->
-<section class="discover-container">
-  <h2 class="visually-hidden">Attractions</h2>
-  <!-- Cards populated by JS -->
-</section>
+    <!-- Attractions grid using the SAME card/spotlight styles as index -->
+    <section class="section section--spotlights" aria-labelledby="discover-title">
+      <div class="layout-container">
+        <h2 id="discover-title" class="section__title section__title--center">Attractions &amp; Insights</h2>
 
+        <!-- Use grid-spotlights and spotlight cards (already styled in styles.css) -->
+        <div id="discoverGrid" class="grid-spotlights" aria-live="polite"></div>
+      </div>
+    </section>
+  </main>
 
-  <footer>
-    <div class="container">
-      <p>&copy; <span id="year"></span> Crescent City Chamber of Commerce. All rights reserved.</p>
-      <p>Last updated: <span id="last-modified"></span></p>
+  <!-- Shared Global Footer (matches index) -->
+  <footer class="site-footer">
+      <p class="footer__copy">&copy; <span id="year"></span> Crescent City Chamber of Commerce. All rights reserved.</p>
+      <p class="footer__meta">Last updated: <span id="last-modified"></span></p>
     </div>
   </footer>
 
-  <!-- ✅ Inline JS only for minor dynamic content -->
+  <!-- Minimal scripts (same toggle + dynamic cards) -->
   <script>
+    // Year/last-modified
     document.getElementById("year").textContent = new Date().getFullYear();
     document.getElementById("last-modified").textContent = document.lastModified;
 
-    const currentPage = window.location.pathname.split("/").pop();
-    document.querySelectorAll(".nav-menu a").forEach((link) => {
-      if (link.getAttribute("href") === currentPage) {
-        link.classList.add("active");
+    // Mobile nav toggle (same behavior as other pages)
+    (function () {
+      const btn = document.getElementById("hamburgerBtn");
+      const nav = document.getElementById("primaryNav");
+      let backdrop = document.getElementById("navBackdrop");
+
+      function closeNav() {
+        nav.classList.remove("active");
+        document.body.classList.remove("nav-open");
+        btn.setAttribute("aria-expanded", "false");
+        if (backdrop) backdrop.remove();
       }
-    });
+
+      btn.addEventListener("click", () => {
+        const isOpen = nav.classList.toggle("active");
+        document.body.classList.toggle("nav-open", isOpen);
+        btn.setAttribute("aria-expanded", isOpen ? "true" : "false");
+
+        if (isOpen) {
+          backdrop = document.createElement("div");
+          backdrop.id = "navBackdrop";
+          backdrop.style.cssText = "position:fixed;inset:0;background:rgba(0,0,0,.35);z-index:999;";
+          backdrop.addEventListener("click", closeNav, { once: true });
+          document.body.appendChild(backdrop);
+        } else {
+          if (backdrop) backdrop.remove();
+        }
+      });
+
+      window.addEventListener("resize", () => {
+        if (window.innerWidth > 768) closeNav();
+      });
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") closeNav();
+      });
+    })();
+
+    // Visit message example (optional)
+    (function () {
+      const el = document.getElementById("visitMessageText");
+      if (!el) return;
+      const last = localStorage.getItem("discoverLastVisit");
+      const now = Date.now();
+      localStorage.setItem("discoverLastVisit", String(now));
+      if (!last) {
+        el.textContent = "Welcome! This looks like your first visit. Enjoy exploring the attractions.";
+      } else {
+        const days = Math.max(1, Math.floor((now - Number(last)) / (1000 * 60 * 60 * 24)));
+        el.textContent = `Welcome back! It’s been about ${days} day(s) since your last visit.`;
+      }
+    })();
+
+    // Build cards from JSON using the SAME spotlight card markup
+    (function () {
+      const container = document.getElementById("discoverGrid");
+      if (!container) return;
+
+      const localData = [
+        {
+          "title": "Wild Life Safari Park",
+          "image": "images/photo.webp",
+          "address": "456 Safari Park Blvd, Crescent City",
+          "description": "A unique park experience featuring walking trails through natural habitats, exotic animals, and guided safari tours for families and nature enthusiasts."
+        },
+        {
+          "title": "Downtown Farmers Market",
+          "image": "images/premium3.webp",
+          "address": "789 Market St, Crescent City",
+          "description": "Enjoy fresh produce, local crafts, and live music every weekend at the heart of the city."
+        },
+        {
+          "title": "Artisan Coffee House",
+          "image": "images/photo2.webp",
+          "address": "654 Brew Lane, Crescent City",
+          "description": "A cozy spot to enjoy locally roasted coffee and pastries, featuring works by local artists."
+        },
+        {
+          "title": "Greenwood Garden",
+          "image": "images/premium1.webp",
+          "address": "987 Flora Rd, Crescent City",
+          "description": "Stroll through beautifully curated gardens showcasing native and exotic plant species."
+        },
+        {
+          "title": "Seaside Art Walk",
+          "image": "images/premium2.webp",
+          "address": "412 Coastal Blvd, Crescent City",
+          "description": "Explore outdoor murals and sculptures from local artists along this scenic coastal path."
+        },
+        {
+          "title": "Harborview Skate Park",
+          "image": "images/photo5.webp",
+          "address": "202 Grind St, Crescent City",
+          "description": "A popular spot for skaters and bikers, featuring ramps, rails, and graffiti art."
+        },
+        {
+          "title": "Historic Train Station",
+          "image": "images/photo6.webp",
+          "address": "123 Heritage Ave, Crescent City",
+          "description": "Step back in time at this beautifully restored train station with vintage locomotives and artifacts."
+        },
+        {
+          "title": "Folk Dance Pavilion",
+          "image": "images/photo7.webp",
+          "address": "77 Festival Road, Crescent City",
+          "description": "Enjoy lively traditional dances and music in this vibrant pavilion celebrating the city’s cultural heritage."
+        }
+      ];
+
+      function makeCard(item) {
+        const article = document.createElement("article");
+        article.className = "spotlight"; // uses index spotlight card style
+
+        article.innerHTML = `
+          <img class="spotlight__media" src="${item.image}" alt="${item.title}" loading="lazy">
+          <div class="spotlight__body">
+            <div class="spotlight__tier">${item.address}</div>
+            <h3 class="spotlight__name">${item.title}</h3>
+            <p>${item.description}</p>
+            <a href="#" class="btn-primary spotlight__cta" aria-label="Learn more about ${item.title}">Learn More</a>
+          </div>
+        `;
+        return article;
+      }
+
+      // Try remote JSON first, fallback to localData if it fails
+      fetch('https://impulsible.github.io/wdd231/chamber/discover.json')
+        .then(r => r.ok ? r.json() : Promise.reject(r.status))
+        .then(data => {
+          container.innerHTML = "";
+          data.forEach(d => container.appendChild(makeCard(d)));
+        })
+        .catch(() => {
+          container.innerHTML = "";
+          localData.forEach(d => container.appendChild(makeCard(d)));
+        });
+    })();
   </script>
 </body>
 </html>
